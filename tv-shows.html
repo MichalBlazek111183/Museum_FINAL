@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="HCPortal - Virtual Museum of Historical Ciphers - TV shows section">
+    <title>TV shows section</title>
+
+    <!--    basic A-FRAME lib -->
+    <script src="vendor/aframe/1.1.0/aframe.min.js"></script>
+    <!--     <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script> -->
+
+    <!--    camera movement-controls -->
+    <script src="vendor/aframe-extras/6.1.1/aframe-extras.min.js"></script>
+    <!--    TEXT AREAS on walls -->
+    <script src="vendor/troika/0.6.0/aframe-troika-text.min.js"></script>
+
+
+    <script>
+
+        AFRAME.registerComponent('interactive', {
+            init: function () {
+                var el = this.el;
+                el.addEventListener('click', function () {
+                    window.location.replace('movies.html');
+                });
+            }
+        });
+
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <!--<a-scene  shadow="autoUpdate: true" cursor="rayOrigin: mouse" inspector-plugin-recast >-->
+    <a-scene shadow="autoUpdate: true" cursor="rayOrigin: mouse">
+
+
+
+        <a-asset>
+
+            <!--general gallery-->
+            <img id="wall" src="museum/assets/general/wall.jpg">
+            <img id="wall-NRM" src="museum/assets/general/wall-NRM.jpg">
+            <img id="floor" src="museum/assets/general/floor.jpg">
+            <img id="floor-NRM" src="museum/assets/general/floor_NRM.jpg">
+            <img id="panel" src="museum/assets/general/panel.png">
+            <img id="sky" src="museum/assets/general/sky.jpg">
+
+
+            <!-- tv-shows-->
+            <img id="blindspot" src="museum/assets/tv_shows/Blindspot_(2015-2020).PNG">
+            <img id="futurama" src="museum/assets/tv_shows/Futurama.PNG">
+            <img id="gravityFalls" src="museum/assets/tv_shows/Gravity_falls_(2012).png">
+            <img id="mrRobot" src="museum/assets/tv_shows/Mr_Robot_(2015).PNG">
+            <img id="prisonBreak" src="museum/assets/tv_shows/Prison_Break_(2005).jpg">
+            <img id="sherlock" src="museum/assets/tv_shows/Sherlock.PNG">
+            <img id="spycraft" src="museum/assets/tv_shows/Spycraft_(2021).PNG">
+            <img id="theAdventuresOfSherlockHolmes"
+                src="museum/assets/tv_shows/The_Adventures_of_Sherlock_Holmes_(1984-85).PNG">
+            <img id="theLostSymbol" src="museum/assets/tv_shows/The_Lost_Symbol_(2021).PNG">
+            <img id="theSimpsons" src="museum/assets/tv_shows/The_Simpsons.PNG">
+            <img id="wednesday" src="museum/assets/tv_shows/Wednesday_(2022).PNG">
+            <img id="xFiles1" src="museum/assets/tv_shows/X-Files_1.PNG">
+            <img id="xFiles2" src="museum/assets/tv_shows/X-Files_2.PNG">
+            <img id="spyXFamily" src="museum/assets/tv_shows/Spy_X_Family_(2022).PNG">
+            <img id="theRookie" src="museum/assets/tv_shows/The_Rookie_(2018).PNG">
+
+
+            <!-- models-->
+            <a-asset-item id="obj" src="museum/assets/models/hand/gear_vr_controller.obj" preload="auto"></a-asset-item>
+            <a-asset-item id="mtl" src="museum/assets/models/hand/gear_vr_controller.mtl" preload="auto"></a-asset-item>
+            <a-asset-item id="door" src="museum/assets/models/door/scene.gltf" preload="auto"></a-asset-item>
+            <a-asset-item id="kiosk" src="museum/assets/models/kiosk.gltf" preload="auto"></a-asset-item>
+            <a-asset-item id="frame" src="museum/assets/models/frame.gltf"></a-asset-item>
+
+            <!-- nav mesh-->
+            <a-asset-item id="tv_show-navmesh" src="museum/assets/navmeshes/navmesh_tv_show.gltf"></a-asset-item>
+
+        </a-asset>
+        <!--navmesh-->
+        <a-entity gltf-model="#tv_show-navmesh" visible="false" nav-mesh></a-entity>
+        <!--navmesh-->
+
+
+        <!--    camera-->
+        <a-entity id="camera-rig" position="-0.748 0 -19.932" rotation="0 -180.000 0"
+            movement-controls="controls: cardboard, gamepad, keyboard, touch; constrainToNavMesh: true; speed: 0.4">
+            <a-entity id="head" camera look-controls="pointerLockEnabled: true" position="0 1.6 0">
+                <a-entity cursor position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
+                    material="color: black; shader: flat">
+                </a-entity>
+            </a-entity>
+        </a-entity>
+        <!--    camera-->
+
+
+        <!--floor-->
+        <a-plane position="2.735 0.12 -9.40223" src="#floor" repeat="5 7" rotation="-90 0 0" width="30" height="40.000"
+            material="" geometry="width: 23.53; height: 22.81"></a-plane>
+        <!--floor-->
+
+        <!--sky-->
+        <a-sky src="#sky"></a-sky>
+        <!--sky-->
+
+        <!--ENTRY-->
+        <a-entity id="door" shadow="" gltf-model="museum/assets/models/door/scene.gltf"
+            position="0.23725 0.0931 -20.70296" rotation="0 180 0" scale="1.2 1.2 1" interactive=""></a-entity>
+        <!--ENTRY-->
+
+        <!--MAIN-SECTION-BASE-wall-->
+        <a-box src="#wall" repeat="5 1" shadow="" position="2.7632 2.07498 -20.80631" rotation=""
+            scale="38.70662 4.355 0.147" material="" geometry="width: 0.61"></a-box>
+        <a-box src="#wall" repeat="4 1" shadow="" color="white" position="14.497 2.13 -9.44266" rotation="0 90 0"
+            scale="35.21677 4.355 0.147" material="" geometry="width: 0.65"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="2.763 2.07498 1.94648" rotation=""
+            scale="38.70662 4.355 0.147" material="" geometry="width: 0.61"></a-box>
+        <a-box src="#wall" repeat="4 1" shadow="" color="white" position="-8.97075 2.13 -9.443" rotation="0 90 0"
+            scale="35.21677 4.355 0.147" material="" geometry="width: 0.65"></a-box>
+        <!--MAIN-SECTION-BASE-wall-->
+
+        <!--MIDDLE WALLS-->
+        <a-box src="#wall" repeat="1 1" shadow="" position="5.13202 2.27693 -11.23172" rotation="0 135 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 1.48"></a-box>
+        <a-box src="#wall" repeat="1 1" shadow="" position="5.14944 2.277 -6.9025" rotation="0 45 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 1.48"></a-box>
+        <a-box src="#wall" repeat="1 1" shadow="" position="-0.72527 2.277 -8.45753" rotation="0 135 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 0.45"></a-box>
+        <a-box src="#wall" repeat="1 1" shadow="" position="0.8231 3.649 -6.90239" rotation="0 135 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 0.6; height: 0.37"></a-box>
+        <a-box src="#wall" repeat="1 1" shadow="" position="2.35825 2.277 -5.36635" rotation="0 135 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 0.45"></a-box>
+        <a-box src="#wall" repeat="1 1" shadow="" position="0.81674 2.277 -11.23477" rotation="0 45 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 1.48"></a-box>
+        <!--MIDDLE WALLS-->
+
+        <!--MAIN ROOF-->
+        <a-box id="roof" src="#wall" repeat="2 2" normal-map="#wall-NRM" normal-texture-repeat="1 1" normal-scale="1 -1"
+            roughness="0.3" shadow="" position="2.77072 4.317 -9.44691" rotation="90 0 0" scale="8.97335 8.82049 0.147"
+            material="" geometry="height: 2.59; width: 2.63"></a-box>
+        <!--MAIN ROOF-->
+
+        <!--Welcoming-->
+        <!--<a-troika-text color="black" troika-text="value: Welcome in TV shows section; letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.57; font: Roboto; outlineWidth: 0.01; fontSize: 0.23" rotation="0 135 0" position="5.19621 3.19658 -11.32199"></a-troika-text>-->
+        <!--<a-troika-text color="black" troika-text="value: Are you a fan of serials and ciphers? Then you've come to the right place. In this section you will find ciphers, maybe even from your favourite series. So don't hesitate to take a look around.; fontSize: 0.13; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4.01; align: center; baseline: top" position="5.196 2.43318 -11.322" rotation="0 135 0"></a-troika-text>-->
+        <!--Welcoming-->
+
+        <!--Title-->
+        <a-box src="#wall" repeat="1 1" shadow="" position="-4.511 3.91194 -13.8335" rotation=""
+            scale="4.21884 4.355 0.147" material="" geometry="width: 0.99; height: 0.17"></a-box>
+        <a-troika-text color="black"
+            troika-text="value: TV SHOWS; letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.57; font: Roboto; outlineWidth: 0.01; fontSize: 0.4"
+            rotation="0 180 0" position="-4.46489 3.88365 -13.90733"></a-troika-text>
+        <!--title-->
+
+        <!--QUIZ ROOM-->
+        <a-troika-text color="black"
+            troika-text="value: QUIZ ROOM; letterSpacing: 0.07; lineHeight: 2.01; maxWidth: 4.57; font: Roboto; outlineWidth: 0.01; fontSize: 0.46; outlineOpacity: 1.05"
+            rotation="0 -45 0" position="0.77821 3.172 -6.83266"></a-troika-text>
+
+        <a-troika-text color="black"
+            troika-text="value: Cryptogram #1; letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 45 0" position="0.847 3.36 -11.13928"></a-troika-text>
+        <a-troika-text position="0.847 2.03303 -11.139" color="black"
+            troika-text="value: Every solution often unlocks simple secrets, some ciphers may conceal hidden wisdom. Go seek secrets by examining every other word, so much knowledge awaits.; fontSize: 0.13; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: center"
+            rotation="0 45 0"></a-troika-text>
+
+        <a-troika-text color="black"
+            troika-text="value: Cryptogram #2; letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -45 0" position="5.0735 3.36 -11.16199"></a-troika-text>
+        <a-troika-text position="5.0871 2.16787 -11.16459" color="black"
+            troika-text="value: 31,33,43,62,61,54,11,33,14,16 13; fontSize: 0.16; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: center"
+            rotation="0 -45 0"></a-troika-text>
+
+        <a-troika-text color="black"
+            troika-text="value: Cryptogram #3; letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -135 0" position="5.12289 3.36 -7.00837"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: WHAT EYES LACK LOVE DOES OR NOT EMPATHIZE; fontSize: 0.14; letterSpacing: 0.38; lineHeight: 1.5; maxWidth: -0.1; baseline: top"
+            position="5.123 2.7491 -7.008" rotation="0 -135 0"></a-troika-text>
+
+        <!--QUIZ ROOM-->
+
+        <!--ANSWERS TABLE-->
+        <a-box src="#wall" repeat="1 1" shadow="" position="-3.6702 2.24658 -3.07028" rotation="0 135 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 0.79"></a-box>
+        <a-troika-text color="black"
+            troika-text="value: QUIZ ROOM INFO; letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 135 0" position="-3.59873 3.19969 -3.17046"></a-troika-text>
+        <a-troika-text position="-3.62149 2.25156 -3.1784" color="black"
+            troika-text="value: Welcome to the TV shows section. There is a room behind you where you can try to solve some cryptograms inspired by TV shows in this section. You can look around to find a way how to decipher them. Enjoy!; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 2.43; align: center"
+            rotation="0 135 0"></a-troika-text>
+        <a-troika-text position="-3.62149 1.35485 -3.1784" color="black"
+            troika-text="value: Solutions lie behind this table.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 135 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: Answers; letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -45 0" position="-3.76812 3.218 -3.01275"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: #1 Solution unlocks secrets, ciphers conceal wisdom. Seek by every word, much awaits.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 3.15; align: center; baseline: top"
+            position="-3.75196 2.406 -3.01674" rotation="0 -45 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: #2 CRYPTOGRAM 2; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 3.15; align: center; baseline: top"
+            position="-3.75196 1.764 -3.01674" rotation="0 -45 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: #3 WELLDONE; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 3.15; align: center; baseline: top"
+            position="-3.75196 1.348 -3.01674" rotation="0 -45 0"></a-troika-text>
+        <!--ANSWERS TABLE-->
+
+
+        <!--CIPHERS-->
+
+        <!--MIDDLE WALLS-->
+
+        <!--Spy x Family (2022)-->
+        <a-troika-text color="black"
+            troika-text="value: Spy x Family (2022); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 135 0" position="5.30299 3.36 -11.1962"></a-troika-text>
+        <a-troika-text position="4.59471 2.15 -11.8976" color="black"
+            troika-text="value: These are two monoalphabetic substitution ciphers from the Spy x Family (2022) series, used to hide details about an event's location and time. To decode the message, number blocks are substituted for letters or other numbers using a key. While the key for the first cipher is unknown, the second cipher employs a key table. In this case, a pair of numbers representing row and column coordinates is substituted with a corresponding letter or number from the table.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 135 0"></a-troika-text>
+        <a-image src="#spyXFamily" rotation="0 135 0" position="6.46965 1.925 -10.04779"
+            geometry="height: 1.77; width: 1.42" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="6.96494 -0.31011 -9.54387" visible=""
+            rotation="0 45 0"></a-entity>
+        <!--Spy x Family (2022)-->
+
+        <!--Blindspot (2015-2020)-->
+        <a-troika-text color="black"
+            troika-text="value: Blindspot (2015-2020); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 45 0" position="5.23945 3.36 -6.76633"></a-troika-text>
+        <a-troika-text position="5.91184 2.15046 -7.51215" color="black"
+            troika-text="value: This is a steganography from the Blindspot (2015-2020) series. A bag found in New York's Times Square contains a young woman alive, whose body is covered in mysterious tattoos. One of the tattoos is the name of FBI Agent Kurt Weller. He begins to believe that each tattoo is a clue to a crime that needs to be solved.; fontSize: 0.1; letterSpacing: 0.08; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 45 0"></a-troika-text>
+        <a-image src="#blindspot" rotation="0 45 0" position="3.9849 1.925 -5.59782"
+            geometry="height: 1.77; width: 1.41" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="3.48039 -0.31011 -5.10152" visible=""
+            rotation="0 -45 0"></a-entity>
+        <!--Blindspot (2015-2020)-->
+
+        <!--Futurama-->
+        <a-troika-text color="black"
+            troika-text="value: Futurama; letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="-5.11 3.36 -20.725"></a-troika-text>
+        <a-troika-text position="-3.614 2.03303 -20.725" color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the Futurama series, where each hieroglyph on the yellow and blue book covers corresponds to a character in the English alphabet. Present since the series debut, these hieroglyphs have formed messages that fans eventually decoded, creating a complete alphabet that includes numbers and punctuation. Using this deciphered alphabet, the text on the book cover can be read as: 'Backwards Time Travel Made Easy'.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation=""></a-troika-text>
+        <a-image src="#futurama" rotation="" position="-6.41357 1.92125 -20.71754" geometry="height: 1.77; width: 1.43"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-7.12019 -0.31036 -20.725"
+            rotation="0 -90 0"></a-entity>
+        <!--Futurama-->
+
+        <!--Gravity falls (2012)-->
+        <a-troika-text color="black"
+            troika-text="value: Gravity falls (2012); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -135 0" position="0.70688 3.36 -11.26407"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from the Gravity Falls (2012) series, where one has to look at the right angle to find the word 'WHAT'.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="0.11637 2.35163 -10.70979" rotation="0 -135 0"></a-troika-text>
+        <a-image src="#gravityFalls" rotation="0 -135 0" position="2.23646 1.90749 -12.78171"
+            geometry="height: 1.78; width: 1.415" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="2.73825 -0.33478 -13.27346"
+            rotation="0 135 0"></a-entity>
+        <!--Gravity falls (2012)-->
+
+        <!--MIDDLE WALLS-->
+
+
+        <!--Mr. Robot (2015)-->
+        <a-troika-text color="black"
+            troika-text="value: Mr. Robot (2015); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -90 0" position="14.41741 3.36 -16.26206"></a-troika-text>
+        <a-troika-text position="14.417 2.14551 -15.38622" color="black"
+            troika-text="value: This is a monoalphabetic subsitution cipher from the Mr. Robot (2015-2019) series. In the series, we came across a Caesar cipher with a shift of 13 (ROT-13). The resulting ciphertext is represented with two-digit numbers.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -90 0"></a-troika-text>
+        <a-image src="#mrRobot" rotation="0 -90 0" position="14.415 1.89397 -18.31311"
+            geometry="height: 1.78; width: 1.42" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="14.417 -0.33194 -19.01942"
+            rotation="0 180 0"></a-entity>
+        <!--Mr. Robot (2015)-->
+
+        <!--Prison Break (2005)-->
+        <a-troika-text color="black"
+            troika-text="value: Prison Break (2005); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -90 0" position="14.417 3.36 -8.72323"></a-troika-text>
+        <a-troika-text position="14.417 2.14551 -7.79147" color="black"
+            troika-text="value: This is steganography from the Prison Break (2005) series, where the weave map is hidden in various images. The main character is wearing a tattoo that he designed so that the technical plans of the binding are hidden in it.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -90 0"></a-troika-text>
+        <a-image src="#prisonBreak" rotation="0 -90 0" position="14.415 1.89584 -10.731"
+            geometry="height: 1.77; width: 1.43" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="14.417 -0.33194 -11.43554"
+            rotation="0 180 0"></a-entity>
+        <!--Prison Break (2005)-->
+
+        <!--The Rookie (2018)-->
+        <a-troika-text color="black"
+            troika-text="value: The Rookie (2018); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -90 0" position="14.417 3.36 -2.00951"></a-troika-text>
+        <a-troika-text position="14.417 2.14551 -0.93412" color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from The Rookie (2018) series. It's a letter, in which the number in the corner represents the page number of the book in which the cipher was found.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -90 0"></a-troika-text>
+        <a-image src="#theRookie" rotation="0 -90 0" position="14.41502 1.90424 -3.80104"
+            geometry="height: 1.77; width: 1.44" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="14.42 -0.33194 -4.50419"
+            rotation="0 180 0"></a-entity>
+        <!--The Rookie (2018))-->
+
+        <!--Sherlock-->
+        <a-troika-text color="black"
+            troika-text="value: Sherlock; letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 180 0" position="9.62463 3.36 1.86999"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the Sherlock (2010–2017) series. The cipher consists of two hieroglyphs, numbers in the Hang Zhou numeral system. The first always denotes the page number in the book called London A-Z and the second denotes the right word in the sequence.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="9.11985 2.475 1.87" rotation="0 180 0"></a-troika-text>
+        <a-image src="#sherlock" rotation="0 180 0" position="12.296 1.897 1.86" geometry="height: 1.76; width: 1.415"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="13.00545 -0.33478 1.87"
+            rotation="0 90 0"></a-entity>
+        <!--Sherlock-->
+
+        <!--Spycraft (2021)-->
+        <a-troika-text color="black"
+            troika-text="value: Spycraft (2021); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 180 0" position="2.57093 3.36 1.87"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from the Spycraft (2021) series. The series is about spies using many methods of communication. One of them is steganography, where they embed hidden or unknown information in pictures, charts, or other digital documents. When a spy sends a message, they must encrypt it, convert it into digital form, and hide it within an image, song, or other digital document.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="1.674 2.58577 1.87" rotation="0 180 0"></a-troika-text>
+        <a-image src="#spycraft" rotation="0 180 0" position="4.84984 1.89665 1.86"
+            geometry="height: 1.76; width: 1.405" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="5.55152 -0.33478 1.87"
+            rotation="0 90 0"></a-entity>
+        <!--Spycraft (2021)-->
+
+        <!--The X-Files (1993)-->
+        <a-troika-text color="black"
+            troika-text="value: The X-Files (1993); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 180 0" position="-4.502 3.36 1.87"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a transposition cipher from The X-Files (1993) series. It's an anagram given to Fox Mulder, on which was written 'PALM'. This word, when unscrambled, becomes 'LAMP', leading to the lamp in the living room where a clue was found.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-5.72959 2.47535 1.87" rotation="0 180 0"></a-troika-text>
+        <a-image src="#xFiles2" rotation="0 180 0" position="-2.64309 1.89657 1.86"
+            geometry="height: 1.77; width: 1.415" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-1.93601 -0.33478 1.87"
+            rotation="0 90 0"></a-entity>
+        <!--The X-Files (1993)-->
+
+        <!--The X-Files (1993)-->
+        <a-troika-text color="black"
+            troika-text="value: The X-Files (1993); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 90 0" position="-8.882 3.36 -2.56183"></a-troika-text>
+        <a-troika-text position="-8.882 2.26132 -3.15827" color="black"
+            troika-text="value: This is a cipher from The X-Files (1993) series. The encryption system of this cipher is unknown.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 90 0"></a-troika-text>
+        <a-image src="#xFiles1" rotation="0 90 0" position="-8.872 1.925 -0.60302" geometry="height: 1.78; width: 1.42"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-8.882 -0.31011 0.10086" visible=""></a-entity>
+        <!--The X-Files (1993)-->
+
+        <!--The Adventures of Sherlock Holmes (1984-85)-->
+        <a-troika-text color="black"
+            troika-text="value: The Adventures of Sherlock Holmes (1984-85); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01; align: center"
+            rotation="0 90 0" position="-8.882 3.36 -9.10712"></a-troika-text>
+        <a-troika-text position="-8.882 2.1654 -9.99471" color="black"
+            troika-text="value: This is a polyalphabetic substitution cipher from The Adventures of Sherlock Holmes (1984-85) series. In this cipher, each dummy above the letters of the message represents a letter of the English alphabet. In the picture, the cipher is essentially already broken. It was decrypted based on three individual messages and a frequently repeated word (Elsie).; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 90 0"></a-troika-text>
+        <a-image src="#theAdventuresOfSherlockHolmes" rotation="0 90 0" position="-8.872 1.925 -7.30886"
+            geometry="height: 1.78; width: 1.42" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-8.882 -0.31011 -6.59928"
+            visible=""></a-entity>
+        <!--The Adventures of Sherlock Holmes (1984-85)-->
+
+        <!--The Lost Symbol (2021)-->
+        <a-troika-text color="black"
+            troika-text="value: The Lost Symbol (2021); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 90 0" position="-8.88194 3.36 -16.36978"></a-troika-text>
+        <a-troika-text position="-8.882 2.15739 -17.29422" color="black"
+            troika-text="value: This is a steganography from The Lost Symbol (2021) series. It's a cipher written in the Hebrew language inscribed on the small pyramid without its top, hidden in another location. Therefore, the cipher cannot be deciphered.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 90 0"></a-troika-text>
+        <a-image src="#theLostSymbol" rotation="0 90 0" position="-8.872 1.925 -14.62797"
+            geometry="height: 1.77; width: 1.43" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-8.882 -0.31011 -13.91633"
+            visible=""></a-entity>
+        <!--The Lost Symbol (2021)-->
+
+        <!--The Simpsons-->
+        <a-troika-text color="black"
+            troika-text="value: The Simpsons; letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="5.00904 3.36034 -20.725"></a-troika-text>
+        <a-troika-text position="6.18439 2.16787 -20.725" color="black"
+            troika-text="value: This is a steganography from The Simpsons series. It's a short ciphertext where we read every other word in the sentence. Lisa is looking for the gems, and a cryptogram emerges on the wall. After thinking, she decides to read every other word. On her second try, the sentence comes out: Turn around and seek Springfield's biggest man-made ring.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation=""></a-troika-text>
+        <a-image src="#theSimpsons" rotation="" position="3.47869 1.92508 -20.715" geometry="height: 1.775; width: 1.42"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="2.77265 -0.31036 -20.725"
+            rotation="0 -90 0"></a-entity>
+        <!--The Simpsons-->
+
+        <!--Wednesday (2022)-->
+        <a-troika-text color="black"
+            troika-text="value: Wednesday (2022); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="11.30193 3.36034 -20.725"></a-troika-text>
+        <a-troika-text position="12.08688 2.20038 -20.725" color="black"
+            troika-text="value: This is a steganography from the Wednesday (2022) series. It's a text, that involves sentences, that represent puzzles. which the protagonist needs to solve. The first letters of the solutions form a decrypted message.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation=""></a-troika-text>
+        <a-image src="#wednesday" rotation="" position="9.46326 1.92508 -20.715" geometry="height: 1.775; width: 1.41"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="8.75791 -0.31036 -20.725"
+            rotation="0 -90 0"></a-entity>
+        <!--Wednesday (2022)-->
+
+        <!--CIPHERS-->
+
+
+    </a-scene>
+
+</body>
+
+</html>

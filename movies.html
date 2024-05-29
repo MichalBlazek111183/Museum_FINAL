@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="HCPortal - Virtual Museum of Historical Ciphers - Movies section">
+    <title>Movies section</title>
+
+    <!--    basic A-FRAME lib -->
+    <script src="vendor/aframe/1.1.0/aframe.min.js"></script>
+    <!--<script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script> -->
+
+    <!--    camera movement-controls -->
+    <script src="vendor/aframe-extras/6.1.1/aframe-extras.min.js"></script>
+    <!--    TEXT AREAS on walls -->
+    <script src="vendor/troika/0.6.0/aframe-troika-text.min.js"></script>
+
+
+    <script>
+
+        AFRAME.registerComponent('interactive', {
+            init: function () {
+                var el = this.el;
+                el.addEventListener('click', function () {
+                    console.log('interactive click');
+                    if (el.id == 'doorGame') {
+                        window.location.replace('games.html');
+                    }
+                    else if (el.id == 'doorTV')
+                        window.location.replace('tv-shows.html');
+                });
+            }
+        });
+
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <!--<a-scene  shadow="autoUpdate: true" cursor="rayOrigin: mouse" inspector-plugin-recast >-->
+    <a-scene shadow="autoUpdate: true" cursor="rayOrigin: mouse">
+
+
+
+        <a-asset>
+
+            <!--general gallery-->
+            <img id="wall" src="museum/assets/general/wall.jpg">
+            <img id="wall-NRM" src="museum/assets/general/wall-NRM.jpg">
+            <img id="floor" src="museum/assets/general/floor.jpg">
+            <img id="floor-NRM" src="museum/assets/general/floor_NRM.jpg">
+            <img id="panel" src="museum/assets/general/panel.png">
+            <img id="sky" src="museum/assets/general/sky.jpg">
+
+            <!-- movies-->
+            <img id="aBeautifulMind" src="museum/assets/movies/A_beautiful_mind_(2001).png">
+            <img id="angels&Demons" src="museum/assets/movies/Angels_&_Demons_(2009).PNG">
+            <img id="asAboveSoBelow" src="museum/assets/movies/As_Above_So_Below_(2014).PNG">
+            <img id="drStrangeloveOrHowILearnedToStopWorryingAndLoveTheBomb"
+                src="museum/assets/movies/Dr_Strangelove_or_How_I_Learned_to_Stop_Worrying_and_Love_the_Bomb.PNG">
+            <img id="enigma" src="museum/assets/movies/Enigma_(2001).PNG">
+            <img id="enolaHolmes" src="museum/assets/movies/Enola_Holmes_(2020).PNG">
+            <img id="harryPotterAndTheChamberofSecrets"
+                src="museum/assets/movies/Harry_Potter_and_the_Chamber_of_Secrets_(2002).PNG">
+            <img id="imitationGame" src="museum/assets/movies/Imitation_Game_(2014).png">
+            <img id="indianaJonesTheLastCrusade" src="museum/assets/movies/Indiana_Jones_The_Last_Crusade_(1989).png">
+            <img id="indianaJonesAndTheDialOfDestiny"
+                src="museum/assets/movies/Indiana_Jones_and_the_Dial_of_Destiny_(2023).png">
+            <img id="interstellar" src="museum/assets/movies/Interstellar_(2014).PNG">
+            <img id="journey2TheMysteriousIsland" src="museum/assets/movies/Journey_2_The_Mysterious_Island_(2012).PNG">
+            <img id="knowing" src="museum/assets/movies/Knowing_(2009).PNG">
+            <img id="lemonySnicketsASeriesOfUnfortunateEvents"
+                src="museum/assets/movies/Lemony_Snicket's_A_Series_of_Unfortunate_Events_(2004).png">
+            <img id="martian" src="museum/assets/movies/Martian_(2015).png">
+            <img id="mercuryRising" src="museum/assets/movies/Mercury_rising_(1998).PNG">
+            <img id="midway" src="museum/assets/movies/Midway_(2019).png">
+            <img id="nationalTreasure" src="museum/assets/movies/National_Treasure_(2004).png">
+            <img id="nationalTreasureBookOfSecrets"
+                src="museum/assets/movies/National_Treasure_Book_of_Secrets_(2007).png">
+            <img id="rushHour3" src="museum/assets/movies/Rush_Hour_3_(2007).jpg">
+            <img id="shanghaiKnights" src="museum/assets/movies/Shanghai_Knights_(2003).png">
+            <img id="showden" src="museum/assets/movies/Showden_(2016).png">
+            <img id="skyfall" src="museum/assets/movies/Skyfall_(2012).PNG">
+            <img id="sneakers" src="museum/assets/movies/Sneakers_(1992).png">
+            <img id="theAdventuresOfTintin" src="museum/assets/movies/The_Adventures_of_Tintin_(2011).PNG">
+            <img id="theBatman" src="museum/assets/movies/The_Batman_(2022).PNG">
+            <img id="theDaVinciCode" src="museum/assets/movies/The_Da_Vinci_Code_(2006).png">
+            <img id="theLibrarianTheCurseOfTheJudasChalice"
+                src="museum/assets/movies/The_Librarian_The_Curse_of_the_Judas_Chalice_(2008).PNG">
+            <img id="tombRaider" src="museum/assets/movies/Tomb_Raider_(2018).PNG">
+            <img id="transformersRevengeOfTheFallen"
+                src="museum/assets/movies/Transformers_Revenge_of_the_Fallen_(2009).png">
+            <img id="uncharted" src="museum/assets/movies/Uncharted_(2022).PNG">
+            <img id="zodiac" src="museum/assets/movies/Zodiac_(2007).png">
+            <img id="aChristmasStory" src="museum/assets/movies/A_Christmas_story_(1983).PNG">
+            <img id="inferno" src="museum/assets/movies/Inferno_(2016).PNG">
+            <img id="pi" src="museum/assets/movies/PI_(1998).PNG">
+            <img id="theKingsMan" src="museum/assets/movies/The_King's_Man_(2021).PNG">
+            <img id="thePrivateLifeOfSherlockHolmes" src="museum/assets/movies/The_Private_Life_of_Sherlock_Holmes.PNG">
+            <img id="windtalkers" src="museum/assets/movies/Windtalkers_(2002).png">
+
+            <img id="theBatman_a" src="museum/assets/movies/batman/a.png">
+            <img id="theBatman_b" src="museum/assets/movies/batman/b.png">
+            <img id="theBatman_c" src="museum/assets/movies/batman/c.png">
+            <img id="theBatman_e" src="museum/assets/movies/batman/e.png">
+            <img id="theBatman_g" src="museum/assets/movies/batman/g.png">
+            <img id="theBatman_h" src="museum/assets/movies/batman/h.png">
+            <img id="theBatman_i" src="museum/assets/movies/batman/i.png">
+            <img id="theBatman_m" src="museum/assets/movies/batman/m.png">
+            <img id="theBatman_n" src="museum/assets/movies/batman/n.png">
+            <img id="theBatman_o" src="museum/assets/movies/batman/o.png">
+            <img id="theBatman_p" src="museum/assets/movies/batman/p.png">
+            <img id="theBatman_r" src="museum/assets/movies/batman/r.png">
+            <img id="theBatman_s" src="museum/assets/movies/batman/s.png">
+            <img id="theBatman_t" src="museum/assets/movies/batman/t.png">
+            <img id="theBatman_y" src="museum/assets/movies/batman/y.png">
+
+
+            <!-- models-->
+            <a-asset-item id="obj" src="museum/assets/models/hand/gear_vr_controller.obj" preload="auto"></a-asset-item>
+            <a-asset-item id="mtl" src="museum/assets/models/hand/gear_vr_controller.mtl" preload="auto"></a-asset-item>
+            <a-asset-item id="door" src="museum/assets/models/door/scene.gltf" preload="auto"></a-asset-item>
+            <a-asset-item id="kiosk" src="museum/assets/models/kiosk.gltf" preload="auto"></a-asset-item>
+            <a-asset-item id="frame" src="museum/assets/models/frame.gltf"></a-asset-item>
+
+            <!-- nav mesh-->
+            <a-asset-item id="movies-navmesh" src="museum/assets/navmeshes/navmesh_movie.gltf"></a-asset-item>
+
+        </a-asset>
+
+
+        <!--navmesh-->
+        <a-entity gltf-model="#movies-navmesh" visible="false" nav-mesh></a-entity>
+        <!--navmesh-->
+
+
+        <!--    camera-->
+        <a-entity id="camera-rig" position="-4.249 0 -12.838" rotation="0 -89.179 0"
+            movement-controls="controls: cardboard, gamepad, keyboard, touch; constrainToNavMesh: true; speed: 0.4">
+            <a-entity id="head" camera look-controls="pointerLockEnabled: true" position="0 1.6 0">
+                <a-entity cursor position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
+                    material="color: black; shader: flat">
+                </a-entity>
+            </a-entity>
+        </a-entity>
+        <!--    camera-->
+
+
+        <!--floor-->
+        <a-plane position="6.42532 0.12 -12.67483" src="#floor" repeat="5 7" rotation="-90 0 0" width="30"
+            height="40.000" material="" geometry="width: 24.02; height: 24.52"></a-plane>
+        <!--floor-->
+
+
+        <!--sky-->
+        <a-sky src="#sky"></a-sky>
+        <!--sky-->
+
+
+        <!--stairs-GALLERY-->
+        <a-box src="#floor" shadow="" color="white" position="-7.66102 0.015 -8.19156" rotation="-90 0 0"
+            scale="4.80309 9.87401 0.2" material="" geometry="height: 0.38; width: 0.92"></a-box>
+        <a-box src="#floor" shadow="" position="-11.434 0.72667 -8.19057"
+            rotation="-67.2549319080463 90.17954624902566 -90.00021045914971" scale="4.7 4 0.1225" material=""
+            geometry="height: 0.94; width: 0.74"></a-box>
+        <a-box src="#floor" shadow="" color="white" position="-14.78579 1.34909 -8.13581"
+            rotation="-90.00021045914971 -89.45590055377542 0" scale="4.80309 9.87401 0.2" material=""
+            geometry="height: 0.36; width: 0.8"></a-box>
+        <a-box src="#floor" shadow="" position="-14.788 2.25 -3.52587" rotation="-72.414 -179.78208 -90.278"
+            scale="4.7 4 0.1225" material="" geometry="height: 0.89; width: 1.22"></a-box>
+        <a-box src="#floor" shadow="" color="white" position="-14.78631 3.07542 1.04618" rotation="-90 0 0"
+            scale="4.80309 9.87401 0.2" material="" geometry="height: 0.38; width: 0.74"></a-box>
+        <a-box src="#floor" shadow="" color="white" position="-11.86873 3.6632 1.06766"
+            rotation="64.32138799697647 90.00021045914971 -90.00021045914971" scale="4.43 4.8 0.227" material=""
+            geometry="height: 0.77; width: 0.62"></a-box>
+
+        <a-box src="#wall" shadow="" position="-8.04 2.13102 -10.10438" rotation="" scale="4 5.932 0.147" material=""
+            geometry="height: 0.75; width: 1.3"></a-box>
+        <a-box src="#wall" shadow="" position="-9.22804 2.11228 -6.26438" rotation="" scale="4 5.932 0.147" material=""
+            geometry="height: 0.73; width: 1.89"></a-box>
+        <a-box src="#wall" shadow="" position="-11.80517 4.32 -0.83465" rotation="" scale="4 5.932 0.147" material=""
+            geometry="height: 1.48; width: 0.64"></a-box>
+        <a-box src="#wall" shadow="" position="-11.80517 4.32 -6.27537" rotation="" scale="4 5.932 0.147" material=""
+            geometry="height: 1.48; width: 0.64"></a-box>
+        <a-box src="#wall" shadow="" position="-16.62889 4.32841 -3.5399" rotation="0 90 0"
+            scale="10.3942 8.09561 0.147" material="" geometry="height: 1.08; width: 1.26"></a-box>
+        <a-box src="#wall" shadow="" position="-13.009 4.32841 -3.58742" rotation="0 90 0" scale="10.3942 8.09561 0.147"
+            material="" geometry="height: 1.08; width: 0.53"></a-box>
+        <a-box src="#wall" shadow="" position="-13.64388 4.29529 2.92728" rotation="" scale="8.61429 8.09561 0.147"
+            material="" geometry="height: 1.08; width: 0.71"></a-box>
+        <a-box src="#wall" shadow="" position="-13.61381 4.33886 -10.10508" rotation="" scale="8.61429 8.09561 0.147"
+            material="" geometry="height: 1.08; width: 0.71"></a-box>
+        <!--stairs-GALLERY-->
+
+        <!--GALLERY-wall-->
+        <a-box src="#wall" repeat="4 1" shadow="" position="6.46096 6.37612 4.724" rotation=""
+            scale="38.707 4.355 0.147" material="" geometry="width: 0.88"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="-10.58829 6.52367 -15.354" rotation="0 90 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.73"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="-10.58829 6.52367 3.81524" rotation="0 90 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.048"></a-box>
+        <a-box src="#wall" repeat="4 1" shadow="" position="6.40663 6.48102 -29.936" rotation=""
+            scale="29.02421 4.355 0.147" material="" geometry="width: 1.18"></a-box>
+        <a-box src="#wall" repeat="4 1" shadow="" position="23.478 6.46918 -22.46634" rotation="0 90 0"
+            scale="31.90184 4.355 0.147" material="" geometry="width: 0.475"></a-box>
+        <a-box src="#wall" repeat="4 1" shadow="" position="23.478 6.46918 -2.86657" rotation="0 90 0"
+            scale="31.90184 4.355 0.147" material="" geometry="width: 0.475"></a-box>
+        <!--GALLERY-wall-->
+
+        <!--MIDDLE-wall-->
+        <a-box src="#wall" repeat="1 1" shadow="" position="6.425 2.27693 -12.675" rotation="0 135 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 2.96"></a-box>
+        <a-box src="#wall" repeat="1 1" shadow="" position="6.425 2.277 -12.675" rotation="0 45 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 2.96"></a-box>
+        <!--MIDDLE-wall-->
+
+        <!--MAIN-SECTION-BASE-wall-->
+        <a-box src="#wall" repeat="5 1" shadow="" position="6.42978 2.07498 -0.349" rotation=""
+            scale="38.70662 4.355 0.147" material="" geometry="width: 0.62"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="-5.51662 2.132 -3.357" rotation="0 90 0"
+            scale="39.74394 4.355 0.147" material="" geometry="width: 0.15"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="-5.51662 2.132 -17.44059" rotation="0 90 0"
+            scale="39.74394 4.355 0.147" material="" geometry="width: 0.37"></a-box>
+        <a-box src="#wall" repeat="4 1" shadow="" color="white" position="6.42019 2.132 -24.854874" rotation=""
+            scale="28.93318 4.355 0.147" material="" geometry="width: 0.83"></a-box>
+        <a-box src="#wall" repeat="4 1" shadow="" color="white" position="18.363 2.13 -12.60838" rotation="0 90 0"
+            scale="35.21677 4.355 0.147" material="" geometry="width: 0.7"></a-box>
+        <a-troika-text color="black"
+            troika-text="value: Second floor; letterSpacing: 0.15; lineHeight: 1.75; maxWidth: 7.04; font: Roboto; align: center; fontSize: 0.4; outlineBlur: 0.01; outlineWidth: 0.01"
+            position="-10.5076 6.73878 -4.8012" rotation="0 90 0"></a-troika-text>
+        <!--MAIN-SECTION-BASE-wall-->
+
+        <!--CEILING-->
+        <a-entity id="info" position="-8.951 8.845 -25.234" scale="1.8 1.357 1">
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="-0.472 0.71935 30.000"
+                rotation="0 0 -40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="0.902 2.020 30.000" rotation="0 0 -53.75"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="2.563 2.902 30.000"
+                rotation="0 179.9998479605043 -110.43457" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="4.404 3.403 30.000" rotation="0 0 -80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="6.312 3.574 30.000" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="8.54 3.574 30" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry="height: 1.28"></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="10.769 3.574 30.000" rotation="0 0 90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="12.677 3.413 30.000" rotation="0 0 80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="14.498 2.903 30.000"
+                rotation="0 179.9998479605043 -68.41574440098134" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="16.138 1.998 30.000"
+                rotation="0 179.9998479605043 -53.75" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof-11" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="17.527 0.711 30.000"
+                rotation="0 0 40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+        </a-entity>
+
+        <a-entity id="info" position="-8.951 8.845 -25.234" scale="1.8 1.357 1">
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="-0.472 0.71935 25.043"
+                rotation="0 0 -40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="0.902 2.020 25.043" rotation="0 0 -53.75"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="2.563 2.902 25.043"
+                rotation="0 179.9998479605043 -110.43457" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="4.404 3.403 25.043" rotation="0 0 -80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="6.312 3.574 25.043" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="8.540 3.574 25.043" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry="height: 1.28"></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="10.769 3.574 25.043" rotation="0 0 90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="12.677 3.413 25.043" rotation="0 0 80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="14.498 2.903 25.043"
+                rotation="0 179.9998479605043 -68.41574440098134" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="16.138 1.998 25.043"
+                rotation="0 179.9998479605043 -53.75" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof-11" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="17.527 0.711 25.043"
+                rotation="0 0 40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+        </a-entity>
+
+        <a-entity id="info" position="-8.951 8.845 -25.234" scale="1.8 1.357 1">
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="-0.472 0.71935 20.086"
+                rotation="0 0 -40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="0.902 2.020 20.086" rotation="0 0 -53.75"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="2.563 2.902 20.086"
+                rotation="0 179.9998479605043 -110.43457" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="4.404 3.403 20.086" rotation="0 0 -80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="6.312 3.574 20.086" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="8.540 3.574 20.086" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry="height: 1.28"></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="10.769 3.574 20.086" rotation="0 0 90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="12.677 3.413 20.086" rotation="0 0 80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="14.498 2.903 20.086"
+                rotation="0 179.9998479605043 -68.41574440098134" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="16.138 1.998 20.086"
+                rotation="0 179.9998479605043 -53.75" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof-11" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="17.527 0.711 20.086"
+                rotation="0 0 40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+        </a-entity>
+
+        <a-entity id="info" position="-8.951 8.845 -25.234" scale="1.8 1.357 1">
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="-0.472 0.71935 15.129"
+                rotation="0 0 -40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="0.902 2.020 15.129" rotation="0 0 -53.75"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="2.563 2.902 15.129"
+                rotation="0 179.9998479605043 -110.43457" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="4.404 3.403 15.129" rotation="0 0 -80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="6.312 3.574 15.129" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="8.540 3.574 15.129" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry="height: 1.28"></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="10.769 3.574 15.129" rotation="0 0 90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="12.677 3.413 15.129" rotation="0 0 80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="14.498 2.903 15.129"
+                rotation="0 179.9998479605043 -68.41574440098134" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="16.138 1.998 15.129"
+                rotation="0 179.9998479605043 -53.75" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof-11" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="17.527 0.711 15.129"
+                rotation="0 0 40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+        </a-entity>
+
+        <a-entity id="info" position="-8.951 8.845 -25.234" scale="1.8 1.357 1">
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="-0.472 0.71935 10.172"
+                rotation="0 0 -40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="0.902 2.020 10.172" rotation="0 0 -53.75"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="2.563 2.902 10.172"
+                rotation="0 179.9998479605043 -110.43457" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="4.404 3.403 10.172" rotation="0 0 -80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="6.312 3.574 10.172" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="8.540 3.574 10.172" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry="height: 1.28"></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="10.769 3.574 10.172" rotation="0 0 90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="12.677 3.413 10.172" rotation="0 0 80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="14.498 2.903 10.172"
+                rotation="0 179.9998479605043 -68.41574440098134" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="16.138 1.998 10.172"
+                rotation="0 179.9998479605043 -53.75" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof-11" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="17.527 0.711 10.172"
+                rotation="0 0 40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+        </a-entity>
+
+        <a-entity id="info" position="-8.951 8.845 -25.234" scale="1.8 1.357 1">
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="-0.472 0.71935 5.215"
+                rotation="0 0 -40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="0.902 2.020 5.215" rotation="0 0 -53.75"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="2.563 2.902 5.215"
+                rotation="0 179.9998479605043 -110.43457" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="4.404 3.403 5.215" rotation="0 0 -80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="6.312 3.574 5.215" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="8.540 3.574 5.215" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry="height: 1.28"></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="10.769 3.574 5.215" rotation="0 0 90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="12.677 3.413 5.215" rotation="0 0 80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="14.498 2.903 5.215"
+                rotation="0 179.9998479605043 -68.41574440098134" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="16.138 1.998 5.215"
+                rotation="0 179.9998479605043 -53.75" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof-11" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="17.527 0.711 5.215"
+                rotation="0 0 40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+        </a-entity>
+
+        <a-entity id="info" position="-8.951 8.845 -25.234" scale="1.8 1.357 1">
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="-0.472 0.71935 0.258"
+                rotation="0 0 -40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="0.902 2.020 0.258" rotation="0 0 -53.75"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="2.563 2.902 0.258"
+                rotation="0 179.9998479605043 -110.43457" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="4.404 3.403 0.258" rotation="0 0 -80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="6.312 3.574 0.258" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="8.540 3.574 0.258" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry="height: 1.28"></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="10.769 3.574 0.258" rotation="0 0 90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="12.677 3.413 0.258" rotation="0 0 80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="14.498 2.903 0.258"
+                rotation="0 179.9998479605043 -68.41574440098134" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="16.138 1.998 0.258"
+                rotation="0 179.9998479605043 -53.75" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof-11" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="17.527 0.711 0.258"
+                rotation="0 0 40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+        </a-entity>
+
+        <a-entity id="info" position="-8.951 8.845 -25.234" scale="1.8 1.357 1">
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="-0.472 0.71935 -4.699"
+                rotation="0 0 -40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="0.902 2.020 -4.699" rotation="0 0 -53.75"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="2.563 2.902 -4.699"
+                rotation="0 179.9998479605043 -110.43457" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="4.404 3.403 -4.699" rotation="0 0 -80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="6.312 3.574 -4.699" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="8.540 3.574 -4.699" rotation="0 0 -90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry="height: 1.28"></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="10.769 3.574 -4.699" rotation="0 0 90"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="12.677 3.413 -4.699" rotation="0 0 80"
+                scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="14.498 2.903 -4.699"
+                rotation="0 179.9998479605043 -68.41574440098134" scale="0.48427 1.96582 -0.35521" material=""
+                geometry=""></a-box>
+            <a-box id="roof" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="16.138 1.998 -4.699"
+                rotation="0 179.9998479605043 -53.75" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+            <a-box id="roof-11" src="#wall" repeat="1 1" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+                normal-scale="1 -1" roughness="0.3" shadow="" position="17.527 0.711 -4.699"
+                rotation="0 0 40.236000000000004" scale="0.48427 1.96582 -0.35521" material="" geometry=""></a-box>
+        </a-entity>
+
+        <!--MAIN ROOFS-->
+        <a-box id="roof" src="#wall" repeat="2 2" normal-map="#wall-NRM" normal-texture-repeat="1 1" normal-scale="1 -1"
+            roughness="0.3" shadow="" position="33.26086 8.692 -12.65655" rotation="90 0 0"
+            scale="8.97335 8.82049 0.147" material="" geometry="height: 1.81; width: 2.2"></a-box>
+        <a-box id="roof-12" src="#wall" repeat="2 2" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="-13.62287 8.692 -3.58414" rotation="90 0 0"
+            scale="8.97335 8.82049 0.147" material="" geometry="height: 1.49; width: 0.69"></a-box>
+        <!--MAIN ROOFS-->
+
+        <a-box id="roof-1" src="#floor" repeat="1 1" normal-map="#floor-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="-8.726 10.781 -12.587" rotation="0 0 -20"
+            scale="0.39722 0.12954 40" geometry="depth: 0.87"></a-box>
+        <a-box id="roof-2" src="#floor" repeat="1 1" normal-map="#floor-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="-6.084 12.277 -12.587" rotation="0 0 -40"
+            scale="0.39722 0.12954 40" geometry="depth: 0.87"></a-box>
+        <a-box id="roof-3" src="#floor" repeat="1 1" normal-map="#floor-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="-2.771 13.259 -12.587"
+            rotation="0 0 -59.99999999999999" scale="0.39722 0.12954 40" geometry="depth: 0.87"></a-box>
+        <a-box id="roof-4" src="#floor" repeat="1 1" normal-map="#floor-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="0.639 13.680 -12.587" rotation="0 0 -80"
+            scale="0.39722 0.12954 40" geometry="depth: 0.87"></a-box>
+        <a-box id="roof-5" src="#floor" repeat="1 1" normal-map="#floor-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="4.460 13.750 -12.587" rotation="0 0 90"
+            scale="0.39722 0.12954 40" geometry="depth: 0.87"></a-box>
+        <a-box id="roof-6" src="#floor" repeat="1 1" normal-map="#floor-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="8.290 13.750 -12.587" rotation="0 0 90"
+            scale="0.39722 0.12954 40" geometry="depth: 0.87"></a-box>
+        <a-box id="roof-7" src="#floor" repeat="1 1" normal-map="#floor-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="12.165 13.790 -12.587" rotation="0 0 80"
+            scale="0.39722 0.12954 40" geometry="depth: 0.87"></a-box>
+        <a-box id="roof-8" src="#floor" repeat="1 1" normal-map="#floor-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="15.698 13.287 -12.587"
+            rotation="0 0 59.99999999999999" scale="0.39722 0.12954 40" geometry="depth: 0.87"></a-box>
+        <a-box id="roof-9" src="#floor" repeat="1 1" normal-map="#floor-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="18.841 12.273 -12.587" rotation="0 0 40"
+            scale="0.39722 0.12954 40" geometry="depth: 0.87"></a-box>
+        <a-box id="roof-10" src="#floor" repeat="1 1" normal-map="#floor-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="21.656 10.585 -12.587" rotation="0 0 20"
+            scale="0.39722 0.12954 40" geometry="depth: 0.87"></a-box>
+
+
+        <!--CEILING-->
+
+        <!--FLOOR-GALLERY-->
+        <a-box src="#wall" material="repeat: 1 5" position="6.428 4.29 2.20839" rotation="0 90 0"
+            scale="5.227 0.13 18.404" geometry="depth: 1.86"></a-box>
+        <a-box src="#wall" material="repeat: 1 10" position="-8.05616 4.29 -12.575" rotation=""
+            scale="5.227 0.13 39.674" geometry="depth: 0.62"></a-box>
+        <a-box src="#wall" material="repeat: 1 10" position="6.42795 4.288 -27.399" rotation="0 90 0"
+            scale="5.227 0.13539 18.40439" geometry="depth: 1.86"></a-box>
+        <a-box src="#wall" material="repeat: 1 10" position="20.93112 4.29 -12.59566" rotation=""
+            scale="5.2 0.13 39.67394" geometry="depth: 0.62"></a-box>
+        <a-plane src="#floor" position="6.427 4.36 2.208" geometry="height: 11.1; width: 34.21" rotation="-90 0 0"
+            material="repeat: 4 1" scale="1 0.465 1"></a-plane>
+        <a-plane src="#floor" position="-8.076 4.36 -12.57162" geometry="height: 24.56; width: 5.15" rotation="-90 0 0"
+            scale="1.01 1 1" material="repeat: 1 5"></a-plane>
+        <a-plane src="#floor" position="6.428 4.36 -27.399" geometry="height: 11; width: 34.11" rotation="-90 0 0"
+            material="repeat: 4 1" scale="1 0.46485 1"></a-plane>
+        <a-plane src="#floor" position="20.931 4.36 -12.57387" geometry="height: 24.55; width: 5.12" rotation="-90 0 0"
+            material="repeat: 1 5"></a-plane>
+
+        <a-plane position="33.57284 4.36 -12.50655" src="#floor" repeat="5 7" rotation="-90 0 0" width="30"
+            height="40.000" material="" geometry="width: 20.68; height: 17.68"></a-plane>
+        <a-box src="#wall" repeat="5 1" shadow="" position="25.04 6.52367 -16.77466" rotation="0 50 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="28.71749 6.52367 -19.59835" rotation="0 25 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="37.72601 6.52367 -19.55558" rotation="0 155 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="41.41488 6.52367 -16.746" rotation="0 130 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="42.90292 6.52367 -12.607" rotation="0 90 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="41.42962 6.52367 -8.52863" rotation="0 50 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="37.79653 6.524 -5.74969" rotation="0 25 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="33.27951 6.524 -4.75199" rotation=""
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="28.72151 6.524 -5.76908" rotation="0 155 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="25.05395 6.52367 -8.56883" rotation="0 130 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+
+        <!--ANSWERS-ROOM-->
+        <a-troika-text color="black"
+            troika-text="value: Answers; letterSpacing: 0.04; lineHeight: 2.01; maxWidth: 4.04; font: Roboto; outlineWidth: 0.01; fontSize: 0.39"
+            rotation="" position="33.307 8.10649 -20.501"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: Don't go inside before solving cryptograms in this room!; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 3.44; align: center; baseline: top; outlineWidth: 0.01"
+            position="33.307 7.8323 -20.491" rotation=""></a-troika-text>
+        <a-box src="#wall" repeat="5 1" shadow="" position="31.69765 6.52367 -20.57654" rotation=""
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.04"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="33.19967 7.80975 -20.57654" rotation=""
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.04; height: 0.38"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="34.731 6.52367 -20.57654" rotation=""
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.04"></a-box>
+        <a-plane position="33.19537 4.36 -23.17916" src="#floor" repeat="5 7" rotation="-90 0 0" width="30"
+            height="40.000" material="" geometry="width: 4.63; height: 5.18"></a-plane>
+        <a-box src="#wall" repeat="5 1" shadow="" position="30.94353 6.52367 -23.11145" rotation="0 90 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.13"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="33.17834 6.52367 -25.71539" rotation=""
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.12"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="35.49368 6.52367 -23.19291" rotation="0 90 0"
+            scale="39.86366 4.355 0.147" material="" geometry="width: 0.13"></a-box>
+        <a-box id="roof-13" src="#wall" repeat="2 2" normal-map="#wall-NRM" normal-texture-repeat="1 1"
+            normal-scale="1 -1" roughness="0.3" shadow="" position="33.19936 8.692 -23.20843" rotation="90 0 0"
+            scale="8.97335 8.82049 0.147" material="" geometry="height: 0.6; width: 0.53"></a-box>
+
+
+        <a-troika-text color="black"
+            troika-text="value: Answers #1 &amp; #2; letterSpacing: 0.04; lineHeight: 2.01; maxWidth: 4.04; font: Roboto; outlineWidth: 0.01; fontSize: 0.26"
+            rotation="0 90 0" position="31.022 6.73299 -23.101"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: Here are the answers for cryptograms #1 &amp; #2:; fontSize: 0.16; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: center; baseline: top"
+            position="31.022 6.34858 -23.101" rotation="0 90 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: #1  EASYCIPHERFORSTART; fontSize: 0.13; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top"
+            position="31.022 5.64325 -23.101" rotation="0 90 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: #2  sometimes things are not as they may seem; fontSize: 0.13; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 3.12; align: justify; baseline: top"
+            position="31.022 5.41058 -23.101" rotation="0 90 0"></a-troika-text>
+
+        <a-troika-text color="black"
+            troika-text="value: Answers #3 &amp; #4; letterSpacing: 0.04; lineHeight: 2.01; maxWidth: 4.04; font: Roboto; outlineWidth: 0.01; fontSize: 0.26"
+            rotation="0 -90 0" position="35.41455 6.733 -23.101"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: Here are the answers for cryptograms #3 &amp; #4:; fontSize: 0.16; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: center; baseline: top"
+            position="35.415 6.349 -23.101" rotation="0 -90 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: #3  BATMAN IS A CRYPTOGRAPHER; fontSize: 0.13; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 2.5; align: justify; baseline: top"
+            position="35.415 5.643 -23.101" rotation="0 -90 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: #4  Ciphers Could Lie; fontSize: 0.13; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top"
+            position="35.415 5.411 -23.101" rotation="0 -90 0"></a-troika-text>
+        <!--ANSWERS-ROOM-->
+
+
+        <!--QUIZ-ROOM-->
+        <a-troika-text color="black"
+            troika-text="value: QUIZ ROOM; letterSpacing: 0.09; lineHeight: 1.75; maxWidth: 4.16; font: Roboto; outlineWidth: -0.02; align: center; fillOpacity: 1.27; fontSize: 0.55; outlineBlur: 0.18; strokeColor: #535579"
+            rotation="0 -90 0" position="42.812 7.18953 -12.56058"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: Welcome to the quiz room!; fontSize: 0.24; letterSpacing: -0.08; lineHeight: 1.5; maxWidth: 2.85; align: center; baseline: top"
+            position="42.80965 6.49433 -12.561" rotation="0 -90 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: In here we have cryptograms from 4 different movies and next to them, we prepared some similar cryptograms that you can try to solve yourself.; fontSize: 0.13; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 2.7; align: center; baseline: top"
+            position="42.80965 5.912 -12.561" rotation="0 -90 0"></a-troika-text>
+
+        <a-troika-text color="black"
+            troika-text="value: Cryptogram #3; fontSize: 0.26; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top; outlineWidth: 0.01"
+            position="41.20558 7.635 -8.38168" rotation="0 -130 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: Cryptogram #1; fontSize: 0.26; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top; outlineWidth: 0.01"
+            position="25.13439 7.63467 -16.73929" rotation="0 50 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: 45415359434950484552464F525354415254; fontSize: 0.13; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top"
+            position="25.13558 6.66189 -16.73929" rotation="0 50 0"></a-troika-text>
+
+        <a-troika-text color="black"
+            troika-text="value: Cryptogram #2; fontSize: 0.26; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top; outlineWidth: 0.01"
+            position="41.26365 7.635 -16.79031" rotation="0 -50 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: semitemossgnihteratonsayehtyammees; fontSize: 0.13; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top"
+            position="41.21254 6.662 -16.7578" rotation="0 -50 0"></a-troika-text>
+
+        <a-image src="#theBatman_b" rotation="0 -130 0" position="42.449 6.662 -9.868"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_a" rotation="0 -130 0" position="42.242 6.662 -9.619"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_t" rotation="0 -130 0" position="42.04 6.662 -9.38"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_m" rotation="0 -130 0" position="41.833 6.662 -9.126"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_a" rotation="0 -130 0" position="41.61 6.662 -8.862"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_n" rotation="0 -130 0" position="41.401 6.662 -8.615"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_i" rotation="0 -130 0" position="40.982 6.662 -8.112"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_s" rotation="0 -130 0" position="40.765 6.662 -7.854"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_a" rotation="0 -130 0" position="40.343 6.662 -7.358"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_c" rotation="0 -130 0" position="42.647 6.23929 -10.10225"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_r" rotation="0 -130 0" position="42.439 6.23929 -9.848"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_y" rotation="0 -130 0" position="42.222 6.23929 -9.599"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_p" rotation="0 -130 0" position="42.02 6.23929 -9.35"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_t" rotation="0 -130 0" position="41.813 6.23929 -9.106"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_o" rotation="0 -130 0" position="41.61 6.23929 -8.862"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_g" rotation="0 -130 0" position="41.40077 6.23929 -8.61489"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_r" rotation="0 -130 0" position="41.191 6.23929 -8.361"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_a" rotation="0 -130 0" position="40.98227 6.23929 -8.11174"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_p" rotation="0 -130 0" position="40.765 6.23929 -7.854"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_h" rotation="0 -130 0" position="40.554 6.23929 -7.608"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_e" rotation="0 -130 0" position="40.3427 6.23929 -7.35839"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+        <a-image src="#theBatman_r" rotation="0 -130 0" position="40.133 6.23929 -7.09951"
+            geometry="height: 0.28; width: 0.28" material=""></a-image>
+
+        <a-troika-text color="black"
+            troika-text="value: Cryptogram #4; fontSize: 0.26; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top; outlineWidth: 0.01"
+            position="25.15099 7.635 -8.6595" rotation="0 130 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: Lucid Elopes Rich; fontSize: 0.13; letterSpacing: 0.03; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top"
+            position="25.1599 6.662 -8.57837" rotation="0 130 0"></a-troika-text>
+
+        <!--QUIZ-ROOM-->
+
+        <!--FLOOR-GALLERY-->
+
+
+        <!--MAIN ENTRY-->
+        <a-entity id="doorMain" shadow="" gltf-model="museum/assets/models/door/scene.gltf"
+            position="-5.41799 0.0931 -12.675" rotation="0 90.49008937398656 0" scale="1.2 1.2 1"
+            dynamical=""></a-entity>
+        <a-troika-text color="black"
+            troika-text="value: First floor; letterSpacing: 0.15; lineHeight: 1.75; maxWidth: 7.04; font: Roboto; align: center; fontSize: 0.4; outlineBlur: 0.01; outlineWidth: 0.01"
+            position="-5.41894 1.95822 -16.05388" rotation="0 90 0"></a-troika-text>
+        <!--MAIN ENTRY-->
+
+
+        <!--GAME SECTION ENTRY-->
+        <a-entity id="doorGame" shadow="" gltf-model="museum/assets/models/door/scene.gltf"
+            position="6.425 0.0931 -24.74338" rotation="0 180 0" scale="1.2 1.2 1" interactive=""></a-entity>
+        <a-entity id="kiosk-4" shadow="" gltf-model="museum/assets/models/kiosk.gltf" position="5.117 0.0931 -24.42996"
+            rotation="" scale="0.2 0.2 0.2"></a-entity>
+        <a-troika-text color="white" value="Games room"
+            troika-text="letterSpacing: 0.07; lineHeight: -0.17; maxWidth: 3.28; font: Roboto; outlineWidth: 0.01; fontSize: 0.06"
+            rotation="-55.6485258520812 0 0" position="5.10283 1.46709 -24.479"></a-troika-text>
+        <!--GAME SECTION ENTRY-->
+
+        <!--TV SHOWS ENTRY-->
+        <a-entity id="doorTV" shadow="" gltf-model="museum/assets/models/door/scene.gltf"
+            position="6.425 0.0931 -0.4568" rotation="0 180 0" scale="1.2 1.2 1" interactive=""></a-entity>
+        <a-entity id="kiosk-3" shadow="" gltf-model="museum/assets/models/kiosk.gltf" position="5.11687 0.0931 -0.75139"
+            rotation="0 180 0" scale="0.2 0.2 0.2"></a-entity>
+        <a-troika-text color="white" value="TV shows room"
+            troika-text="letterSpacing: 0.07; lineHeight: -0.17; maxWidth: 3.28; font: Roboto; outlineWidth: 0.01; fontSize: 0.06"
+            rotation="-48.305 180 0" position="5.13317 1.47704 -0.66942"></a-troika-text>
+        <!--TV SHOWS ENTRY-->
+
+
+        <!--railings-->
+        <a-entity position="15.63 4.934 -4.992" id="railings" rotation="0 90 0" scale="1.618 1.020 1">
+            <a-box position="4.70617 -0.466 2.702" rotation="" scale="18.18 0.20148 -0.11632" material="color: #616161"
+                geometry="width: 0.834"></a-box>
+            <a-box id="" position="4.706 0.12685 2.70413" scale="18.172 1.1106 0.04068"
+                material="opacity: 0.6; transparent: true; offset: -2.34 0; color: #1a756a; emissive: #957575; roughness: 0; roughnessTextureRepeat: 1 1.09"
+                geometry="width: 0.833"></a-box>
+            <a-box position="4.706 0.68685 2.70638" rotation="" scale="18.1802 0.04703 -0.07498"
+                material="color: #616161" geometry="width: 0.833"></a-box>
+        </a-entity>
+
+        <a-entity position="-8.18 4.934 -4.992" id="railings-2" rotation="0 90 0" scale="1.618 1.02 1">
+            <a-box position="4.69999 -0.466 2.702" rotation="" scale="18.18 0.20148 -0.11632" material="color: #616161"
+                geometry="width: 0.834"></a-box>
+            <a-box id="" position="4.706 0.12685 2.70413" scale="18.172 1.1106 0.04068"
+                material="opacity: 0.6; transparent: true; offset: -2.34 0; color: #1a756a; emissive: #957575; roughness: 0; roughnessTextureRepeat: 1 1.09"
+                geometry="width: 0.832"></a-box>
+            <a-box position="4.706 0.68685 2.70638" rotation="" scale="18.1802 0.04703 -0.07498"
+                material="color: #616161" geometry="width: 0.833"></a-box>
+        </a-entity>
+
+        <a-entity position="-1.0961 4.934 -3.10372" id="railings-3" rotation="" scale="1.618 1.02 1">
+            <a-box position="4.6338 -0.466 2.702" rotation="" scale="18.18 0.20148 -0.11632" material="color: #616161"
+                geometry="width: 0.81"></a-box>
+            <a-box id="" position="4.634 0.12685 2.70413" scale="18.172 1.1106 0.04068"
+                material="opacity: 0.6; transparent: true; offset: -2.34 0; color: #1a756a; emissive: #957575; roughness: 0; roughnessTextureRepeat: 1 1.09"
+                geometry="width: 0.81"></a-box>
+            <a-box position="4.634 0.68685 2.706" rotation="" scale="18.1802 0.04703 -0.07498" material="color: #616161"
+                geometry="width: 0.81"></a-box>
+        </a-entity>
+
+        <a-entity position="-1.0961 4.934 -27.56135" id="railings-4" rotation="" scale="1.618 1.02 1">
+            <a-box position="4.6338 -0.466 2.702" rotation="" scale="18.18 0.20148 -0.11632" material="color: #616161"
+                geometry="width: 0.811"></a-box>
+            <a-box id="" position="4.634 0.12685 2.70413" scale="18.172 1.1106 0.04068"
+                material="opacity: 0.6; transparent: true; offset: -2.34 0; color: #1a756a; emissive: #957575; roughness: 0; roughnessTextureRepeat: 1 1.09"
+                geometry="width: 0.811"></a-box>
+            <a-box position="4.634 0.68685 2.706" rotation="" scale="18.1802 0.04703 -0.07498" material="color: #616161"
+                geometry="width: 0.811"></a-box>
+        </a-entity>
+        <!--railings-->
+
+        <a-box src="#wall" repeat="1 1" shadow="" position="-1.44375 2.27693 -12.675" rotation="0 -90 0"
+            scale="4.21884 4.355 0.147" material="" geometry=""></a-box>
+        <a-troika-text color="black"
+            troika-text="value: Welcome to the movies section!; letterSpacing: 0.24; lineHeight: 1.59; maxWidth: 4.09; font: Roboto; outlineWidth: 0.01; fontSize: 0.21; align: center"
+            position="-1.525 3.33631 -12.675" rotation="0 -90 0"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: Step into a realm where mystery intertwines with intrigue, and the language of cryptography unlocks the doors to unforgettable adventures. From ancient artifacts to futuristic technologies, explore the rich tapestry of cipher-related tales woven throughout cinema history. Join us on a journey through the enigmatic landscapes of iconic films, where deciphering clues leads to thrilling discoveries.; letterSpacing: 0.15; lineHeight: 1.75; maxWidth: 3.64; font: Roboto; align: center; fontSize: 0.12; outlineBlur: 0.01"
+            position="-1.525 1.9505 -12.675" rotation="0 -90 0"></a-troika-text>
+
+
+
+        <!--CIPHERS-->
+
+        <!--FIRST FLOOR CIPHERS-->
+
+        <!--MIDDLE-wall CIPHERS-->
+
+        <!--A Beautiful Mind (2001)-->
+        <a-troika-text color="black"
+            troika-text="value: A Beautiful Mind (2001); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -45 0" position="3.9992 3.36 -14.95962"></a-troika-text>
+        <a-troika-text position="4.72774 1.94774 -14.26474" color="black"
+            troika-text="value: This is a transposition cipher from A Beautiful Mind (2001) movie, where numbers represent the latitude and longitude of the places on the map. The movie traces the life of a real person - John Nash, winner of the 1994 Nobel Prize in Economics. He offered the NSA designs for new electronic encryption systems that included elements of encryption based on computational complexity (key length) and other elements of modern cryptography, which IBM and later the NSA put into practice over a fifteen to twenty-year period.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -45 0"></a-troika-text>
+        <a-image src="#aBeautifulMind" rotation="0 -45 0" position="2.70753 1.89844 -16.26642"
+            geometry="height: 1.77; width: 1.43" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="2.21846 -0.33194 -16.76816"
+            rotation="0 -135 0"></a-entity>
+        <!--A Beautiful Mind (2001)-->
+
+        <!--Angels & Demons (2009)-->
+        <a-troika-text color="black"
+            troika-text="value: Angels & Demons (2009); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 135 0" position="4.38523 3.36 -14.8402"></a-troika-text>
+        <a-troika-text position="3.61587 1.948 -15.61578" color="black"
+            troika-text="value: This is a steganography from the movie Angels and Demons (2009). It's a message from the Illuminati, the arch-enemy of the Catholic Church, is found at the scene. Harvard symbologist Robert Langdon is trying to collect all the pieces of the puzzle consisting of ancient symbols to prevent the murder of the cardinals.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 135 0"></a-troika-text>
+        <a-image src="#angels&Demons" rotation="0 135 0" position="5.59087 1.89844 -13.64685"
+            geometry="height: 1.77; width: 1.45" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="6.08478 -0.33194 -13.15032"
+            rotation="0 45 0"></a-entity>
+        <!--Angels & Demons (2009)-->
+
+        <!--As Above, So Below (2014)-->
+        <a-troika-text color="black"
+            troika-text="value: As Above, So Below (2014); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -135 0" position="8.61901 3.36 -15.0836"></a-troika-text>
+        <a-troika-text position="7.91034 1.948 -14.36544" color="black"
+            troika-text="value: This is a steganography from the movie As Above, So Below (2014), where the main character deduces that the message could be hidden on the back of a stone tablet. To reveal the message, the backside must be smeared with a chemical and then set on fire.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -135 0"></a-troika-text>
+        <a-image src="#asAboveSoBelow" rotation="0 -135 0" position="9.95424 1.898 -16.32946"
+            geometry="height: 1.77; width: 1.43" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="10.46507 -0.33194 -16.83477"
+            rotation="0 135 0"></a-entity>
+        <!--As Above, So Below (2014)-->
+
+        <!--Dr. Strangelove or How I Learned to Stop Worrying and Love the Bomb-->
+        <a-troika-text color="black"
+            troika-text="value: Dr. Strangelove or How I Learned to Stop Worrying and Love the Bomb; letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 45 0" position="8.59427 3.36 -14.6573"></a-troika-text>
+        <a-troika-text position="9.3695 1.982 -15.47647" color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the movie Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964). It's a code sent by radio that refers to a command from the codebook.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 45 0"></a-troika-text>
+        <a-image src="#drStrangeloveOrHowILearnedToStopWorryingAndLoveTheBomb" rotation="0 45 0"
+            position="7.40097 1.89227 -13.5094" geometry="height: 1.77; width: 1.45" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="6.89428 -0.33964 -13.01003"
+            rotation="0 -45 0"></a-entity>
+        <!--Dr. Strangelove or How I Learned to Stop Worrying and Love the Bomb-->
+
+        <!--Enigma (2001)-->
+        <a-troika-text color="black"
+            troika-text="value: Enigma (2001); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 135 0" position="8.72937 3.36 -10.54175"></a-troika-text>
+        <a-troika-text position="8.0275 1.98221 -11.19747" color="black"
+            troika-text="value: This is a rotorcipher from the movie Enigma (2001), featuring the Enigma machine which required specific settings to decode messages. Its security depended on the impracticality of manually testing every possible setting before they were changed, making decryption extremely challenging.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 135 0"></a-troika-text>
+        <a-image src="#enigma" rotation="0 135 0" position="10.024 1.898 -9.187" geometry="height: 1.77; width: 1.42"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="10.51805 -0.33194 -8.68572"
+            rotation="0 45 0"></a-entity>
+        <!--Enigma (2001)-->
+
+        <!--The Private Life of Sherlock Holmes-->
+        <a-troika-text color="black"
+            troika-text="value: The Private Life of Sherlock Holmes; letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -45 0" position="8.53128 3.36 -10.43731"></a-troika-text>
+        <a-troika-text position="9.25749 2.04573 -9.72418" color="black"
+            troika-text="value: This is a steganography from The Private Life of Sherlock Holmes (1970) movie. A lady gives a message by opening and closing an umbrella to a colleague in a cab on the street. When she holds the umbrella open longer it means a comma, and shorter means a full stop.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -45 0"></a-troika-text>
+        <a-image src="#thePrivateLifeOfSherlockHolmes" rotation="0 -45 0" position="7.28334 1.89844 -11.70042"
+            geometry="height: 1.77; width: 1.45" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="6.79055 -0.33194 -12.20579"
+            rotation="0 -135 0"></a-entity>
+        <!--The Private Life of Sherlock Holmes-->
+
+        <!--PI (1998)-->
+        <a-troika-text color="black"
+            troika-text="value: PI (1998); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 45 0" position="4.30548 3.36 -10.27605"></a-troika-text>
+        <a-troika-text position="4.97662 2.03078 -11.02472" color="black"
+            troika-text="value: This is a transposition cipher from the movie PI (1998). The story is about Max meeting Lenny Meyer, a Hasidic Jew who does mathematical research on the Torah. Lenny demonstrates some simple Gematria, the correspondence of the Hebrew alphabet with numbers, and explains that some people believe the Torah is a string of numbers forming a code sent by God. An intrigued Max notes that some of the concepts are parallel to other mathematical concepts, such as the Fibonacci sequence.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 45 0"></a-troika-text>
+        <a-image src="#pi" rotation="0 45 0" position="2.9442 1.89812 -9.04878" geometry="height: 1.77; width: 1.45"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="2.44084 -0.33194 -8.54843"
+            rotation="0 -45 0"></a-entity>
+        <!--PI (1998)-->
+
+        <!--The Imitation Game (2014)-->
+        <a-troika-text color="black"
+            troika-text="value: The Imitation Game (2014); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -135 0" position="4.14583 3.36 -10.52668"></a-troika-text>
+        <a-troika-text position="3.40946 1.948 -9.78382" color="black"
+            troika-text="value: This is a rotorcipher from The Imitation Game (2014) movie. It uses the Enigma machine, which has numerous settings required for message decryption. The encryption's security relied on the impracticality of manually testing all combinations before daily changes. These settings were updated daily using pre-distributed lists of secret keys and additional adjustments for each message.; fontSize: 0.1; letterSpacing: 0.09; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -135 0"></a-troika-text>
+        <a-image src="#imitationGame" rotation="0 -135 0" position="5.33018 1.90009 -11.71103"
+            geometry="height: 1.77; width: 1.43" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="5.83993 -0.33194 -12.20871"
+            rotation="0 135 0"></a-entity>
+        <!--The Imitation Game (2014)-->
+
+        <!--MIDDLE-wall CIPHERS-->
+
+
+        <!--Indiana Jones: The Last Crusade (1989)-->
+        <a-troika-text color="black"
+            troika-text="value: Indiana Jones: The Last Crusade (1989); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01; align: center"
+            rotation="0 90 0" position="-5.39555 3.36 -21.34944"></a-troika-text>
+        <a-image src="#indianaJonesTheLastCrusade" rotation="0 90 0" position="-5.41692 1.925 -19.26222"
+            geometry="height: 1.78; width: 1.41" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-5.42048 -0.31011 -18.55629"
+            visible=""></a-entity>
+        <a-troika-text position="-5.42935 1.925 -21.95361" color="black"
+            troika-text="value: This is a steganography from the movie Indiana Jones: The Last Crusade (1989).  A stained-glass window in the library appears ordinary but contains hidden instructions. The main character uses a notebook with a description of the stained glass as the key to find the catacombs. Roman numerals on the windows correspond to locations in the library, and the main character discovers that the Roman numeral X marks the entrance on a specific part of the floor.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 90 0"></a-troika-text>
+        <!--Indiana Jones: The Last Crusade (1989)-->
+
+        <!--Indiana Jones and the Dial of Destiny (2023)-->
+        <a-troika-text color="black"
+            troika-text="value: Indiana Jones and the Dial of Destiny (2023); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01; align: center"
+            rotation="" position="0.43062 3.36034 -24.754"></a-troika-text>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-2.09225 -0.31036 -24.77294"
+            rotation="0 -90 0"></a-entity>
+        <a-image src="#indianaJonesAndTheDialOfDestiny" rotation="" position="-1.38527 1.92508 -24.77045"
+            geometry="height: 1.775; width: 1.42" material=""></a-image>
+        <a-troika-text position="1.37973 2.01313 -24.754" color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the movie Indiana Jones and the Dial of Destiny (2023). It's a message encrypted by a device known as a 'Polybius checkerboard' or Polybius square. This monoalphabetic cipher system is named after the ancient historian Polybius. It features a grid of five rows and five columns, each containing five Greek letters, which are used to encrypt messages.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation=""></a-troika-text>
+        <!--Indiana Jones and the Dial of Destiny (2023)-->
+
+        <!--Interstellar (2014)-->
+        <a-troika-text color="black"
+            troika-text="value: Interstellar (2014); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="12.33764 3.36034 -24.754"></a-troika-text>
+        <a-image src="#interstellar" rotation="" position="10.6434 1.92508 -24.77" geometry="height: 1.785; width: 1.42"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="9.93332 -0.31036 -24.77294"
+            rotation="0 -90 0"></a-entity>
+        <a-troika-text position="13.3711 1.96633 -24.754" color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the movie Interstellar (2014). It's called the standard interstellar code, functioning like Morse code. It uses dots and dashes to represent letters, numbers, and special characters, transmitted via radio carrier or modulated tones using a contact button.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation=""></a-troika-text>
+        <!--Interstellar (2014)-->
+
+        <!--Journey 2 The Mysterious Island (2012)-->
+        <a-troika-text color="black"
+            troika-text="value: Journey 2 The Mysterious Island (2012); letterSpacing: 0.25; lineHeight: 2; maxWidth: 4.14; font: Roboto; outlineWidth: 0.01; align: center"
+            rotation="0 -90 0" position="18.27101 3.36 -19.92708"></a-troika-text>
+        <a-image src="#journey2TheMysteriousIsland" rotation="0 -90 0" position="18.281 1.90037 -22.253"
+            geometry="height: 1.77; width: 1.45" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="18.28856 -0.33194 -22.9636"
+            rotation="0 180 0"></a-entity>
+        <a-troika-text position="18.28664 1.99276 -19.29177" color="black"
+            troika-text="value: This is a steganography from the movie Journey 2: The Mysterious Island (2012). It's from a scenario where only certain words are selected from the legacy left by Jules Verne. These words refer to three different books in which there is a map. After overlaying these maps, the complete map is revealed, disclosing the coordinates of the island.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -90 0"></a-troika-text>
+        <!--Journey 2 The Mysterious Island (2012)-->
+
+        <!--Knowing (2009)-->
+        <a-troika-text color="black"
+            troika-text="value: Knowing (2009); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -90 0" position="18.27101 3.36 -12.55889"></a-troika-text>
+        <a-image src="#knowing" rotation="0 -90 0" position="18.28109 1.90564 -14.72073"
+            geometry="height: 1.77; width: 1.45" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="18.28856 -0.33194 -15.43364"
+            rotation="0 180 0"></a-entity>
+        <a-troika-text position="18.28664 1.948 -11.67862" color="black"
+            troika-text="value: This is a steganography from the movie Knowing (2009). Movie begins in 1959, during the opening of a new elementary school, students placed their drawings in a time capsule. One girl, however, submitted a paper filled with numbers instead of a drawing. Fifty years later, the time capsule is opened by young Caleb Koestler. His father, Professor John Koestler, discovers that the numbers predict the dates and coordinates of major disasters over the past fifty years, revealing a startling legacy of prophetic details encoded in the girl's submission.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -90 0"></a-troika-text>
+        <!--Knowing (2009)-->
+
+        <!--Lemony Snicket's A Series of Unfortunate Events (2004)-->
+        <a-troika-text color="black"
+            troika-text="value: Lemony Snicket's A Series of Unfortunate Events (2004); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01; align: center"
+            rotation="0 -90 0" position="18.27101 3.36 -4.73004"></a-troika-text>
+        <a-image src="#lemonySnicketsASeriesOfUnfortunateEvents" rotation="0 -90 0" position="18.28109 1.90394 -6.90207"
+            geometry="height: 1.77; width: 1.43" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="18.28856 -0.33194 -7.60632"
+            rotation="0 180 0"></a-entity>
+        <a-troika-text position="18.28664 2.0463 -3.89314" color="black"
+            troika-text="value: This is steganography from the movie Lemony Snicket's A Series of Unfortunate Events (2004). Grammatical mistakes in the message represent substituted letters. Correcting the grammatically incorrect letters and connecting them subsequently creates a ciphered message.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -90 0"></a-troika-text>
+        <!--Lemony Snicket's A Series of Unfortunate Events (2004)-->
+
+        <!--Inferno (2016)-->
+        <a-troika-text color="black"
+            troika-text="value: Inferno (2016); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 180 0" position="12.88677 3.36 -0.45472"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from the movie Inferno (2016). It's an anagram hidden in Botticelli's painting 'Map of Hell' and a cipher hidden on the underside of a mask that could only be read after rubbing it with water.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="11.9339 2.4347 -0.46571" rotation="0 180 0"></a-troika-text>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="15.86082 -0.33478 -0.42301"
+            rotation="0 90 0"></a-entity>
+        <a-image src="#inferno" rotation="0 180 0" position="15.149 1.897 -0.425" geometry="height: 1.76; width: 1.405"
+            material=""></a-image>
+        <!--Inferno (2016)-->
+
+        <!--Mercury rising (1998)-->
+        <a-troika-text color="black"
+            troika-text="value: Mercury rising (1998); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 180 0" position="-0.17125 3.36 -0.45472"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a rotorcipher from the movie Mercury Rising (1998). The movie is about Art, an FBI agent who protects Simon, a 9-year-old autistic boy. Some criminals want to silence the boy after he cracks a super-heavy code called 'Mercury', and Art's job is to ensure he isn't murdered. Mercury was an online rotor machine derived from Typex but modified to achieve a longer cycle length using a so-called double drum basket system.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-1.03451 2.67457 -0.46571" rotation="0 180 0"></a-troika-text>
+        <a-image src="#mercuryRising" rotation="0 180 0" position="2.118 1.897 -0.425"
+            geometry="height: 1.76; width: 1.405" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="2.82544 -0.33478 -0.42301"
+            rotation="0 90 0"></a-entity>
+        <!--Mercury rising (1998)-->
+
+        <!--Midway (2019)-->
+        <a-troika-text color="black"
+            troika-text="value: Midway (2019); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 90 0" position="-5.433 3.36 -3.60599"></a-troika-text>
+        <a-image src="#midway" rotation="0 90 0" position="-5.41692 1.925 -1.70887" geometry="height: 1.77; width: 1.41"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-5.42048 -0.31011 -1.00014"
+            visible=""></a-entity>
+        <a-troika-text position="-5.42935 1.948 -4.41594" color="black"
+            troika-text="value: This is a composed cipher from the movie Midway (2019). During the Battle of Midway in June 1942, the Japanese military communicated using encrypted messages through an advanced encryption device called JN-25. This machine encoded naval communications into complex ciphers. Interestingly, musicians were instrumental in intercepting these ciphers due to their acute hearing abilities. They decoded the rhythmic patterns of letters exchanged among Japanese troops, which revealed plans for an impending attack on Midway.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 90 0"></a-troika-text>
+        <!--Midway (2019)-->
+
+        <!--FIRST FLOOR CIPHERS-->
+
+
+
+        <!--SECOND FLOOR CIPHERS-->
+
+        <!--National Treasure (2004)-->
+        <a-troika-text color="black"
+            troika-text="value: National Treasure (2004); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 90 0" position="-10.46243 7.82875 -11.78409"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a polyalphabetic substitution cipher from the movie National Treasure (2004). The cipher uses a text, such as a book, as its key. The format involves a number sequence: XXX represents the page number, followed by three numbers a-b-c, where 'a' is the line number, 'b' is the word position in that line, and 'c' is the letter position in the word. These numbers are decoded into letters forming words based on the key.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-10.45329 7.138 -12.68044" rotation="0 90 0"></a-troika-text>
+        <a-image src="#nationalTreasure" rotation="0 90 0" position="-10.461 6.51841 -9.50005"
+            geometry="height: 1.77; width: 1.425" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-10.47064 4.28794 -8.79302"
+            rotation=""></a-entity>
+        <!--National Treasure (2004)-->
+
+        <!--National Treasure Book of Secrets (2007)-->
+        <a-troika-text color="black"
+            troika-text="value: National Treasure Book of Secrets (2007); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 5.74; font: Roboto; outlineWidth: 0.01"
+            rotation="0 90 0" position="-10.46243 7.82875 -19.01804"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a polygraphic substitution cipher from the movie National Treasure: Book of Secrets (2007). This type of substitution cipher resembles the Playfair cipher, where pairs of letters are replaced according to a given key, which is, for example, a word.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-10.45329 7.138 -19.85718" rotation="0 90 0"></a-troika-text>
+        <a-image src="#nationalTreasureBookOfSecrets" rotation="0 90 0" position="-10.46138 6.51918 -16.72031"
+            geometry="height: 1.78; width: 1.405" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-10.47064 4.28794 -16.01144"
+            rotation=""></a-entity>
+        <!--National Treasure Book of Secrets (2007)-->
+
+        <!--Rush Hour 3 (2007)-->
+        <a-troika-text color="black"
+            troika-text="value: Rush Hour 3 (2007); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 90 0" position="-10.46243 7.82875 -26.14962"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from the movie Rush Hour 3 (2007). It's a list of the 13 highest-ranking Triad bosses, a Chinese crime organization. Their search leads them to Paris, where they find the singer Genevieve, who has the encrypted list tattooed on the back of her head.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-10.45329 7.138 -26.9244" rotation="0 90 0"></a-troika-text>
+        <a-image src="#rushHour3" rotation="0 90 0" position="-10.46138 6.51955 -23.6903"
+            geometry="height: 1.77; width: 1.425" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-10.47064 4.28794 -22.9813"
+            rotation=""></a-entity>
+        <!--Rush Hour 3 (2007)-->
+
+        <!--Shanghai Knights (2003)-->
+        <a-troika-text color="black"
+            troika-text="value: Shanghai Knights (2003); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="-6.27014 7.82875 -29.83851"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from the movie Shanghai Knights (2003). It involves a box that needs to be solved to be opened. Inside, there is a hidden message for the main character from his father.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-5.84551 7.138 -29.8583" rotation=""></a-troika-text>
+        <a-image src="#shanghaiKnights" rotation="" position="-9.041 6.518 -29.835"
+            geometry="height: 1.76; width: 1.405" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-8.33457 4.28794 -29.84219"
+            rotation="0 90 0"></a-entity>
+        <!--Shanghai Knights (2003)-->
+
+        <!--Snowden (2016)-->
+        <a-troika-text color="black"
+            troika-text="value: Snowden (2016); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="0.30442 7.82875 -29.83851"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from the movie Snowden (2016). It's a Rubik's cube that was used to transmit secret information. Hidden inside the cube is a chip containing the uploaded secret documents.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="0.91823 7.138 -29.8583" rotation=""></a-troika-text>
+        <a-image src="#showden" rotation="" position="-2.22146 6.52054 -29.835" geometry="height: 1.77; width: 1.415"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-1.51548 4.28794 -29.84219"
+            rotation="0 90 0"></a-entity>
+        <!--Snowden (2016)-->
+
+        <!--Skyfall (2012)-->
+        <a-troika-text color="black"
+            troika-text="value: Skyfall (2012); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="6.85538 7.82875 -29.83851"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from the movie Skyfall (2012). The movie features a dynamic encryption system where the cipher changes with each access attempt. The cipher key 'Granborough' reveals a map of London when entered. The main code is encrypted to appear meaningless, with an integrated decryption function that decodes and executes the payload upon activation.; fontSize: 0.11; letterSpacing: 0.12; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="7.70855 7.138 -29.8583" rotation=""></a-troika-text>
+        <a-image src="#skyfall" rotation="" position="4.55056 6.52011 -29.835" geometry="height: 1.76; width: 1.405"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="5.25695 4.28794 -29.84219"
+            rotation="0 90 0"></a-entity>
+        <!--Skyfall (2012)-->
+
+        <!--Sneakers (1992)-->
+        <a-troika-text color="black"
+            troika-text="value: Sneakers (1992); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="13.50838 7.82875 -29.83851"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a homophonic substitution cipher from the movie Sneakers (1992). It's a message encrypted using a substitution, consisting of various characters that need to be decrypted by using a cipher key. In this cipher, the same letter can be encrypted as different symbols.; fontSize: 0.11; letterSpacing: 0.13; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="14.44234 7.138 -29.8583" rotation=""></a-troika-text>
+        <a-image src="#sneakers" rotation="" position="11.33024 6.51727 -29.835" geometry="height: 1.77; width: 1.415"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="12.0365 4.28794 -29.84219"
+            rotation="0 90 0"></a-entity>
+        <!--Sneakers (1992)-->
+
+        <!--A Christmas Story (1983)-->
+        <a-troika-text color="black"
+            troika-text="value: A Christmas Story (1983); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="20.38301 7.82875 -29.83851"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a polyalphabetic substitution cipher from the movie A Christmas Story (1983). The story is about Anna's secret message on the radio, dictating numbers as the boy begins to decode the secret message. He twists the wheel on the box and uses the numerical code to reveal the letters. Little Orphan Annie was a fully functional hand-operated crypto disc in the shape of a wearable badge, released in 1936 as a children's toy. The toy consists of a brass badge with the numbers 1-26 stamped in a circle to represent the letters of the alphabet (A-Z). Outside this circle is a ring with 26 letters A-Z.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="20.92581 7.41919 -29.8583" rotation=""></a-troika-text>
+        <a-image src="#aChristmasStory" rotation="" position="17.75255 6.52196 -29.835"
+            geometry="height: 1.77; width: 1.425" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="18.46267 4.28794 -29.84219"
+            rotation="0 90 0"></a-entity>
+        <!--A Christmas Story (1983)-->
+
+        <!--The Adventures of Tintin (2011)-->
+        <a-troika-text color="black"
+            troika-text="value: The Adventures of Tintin (2011); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.69; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -90 0" position="23.30484 7.829 -25.86865"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from The Adventures of Tintin (2011) movie, where after overlapping two scrolls, a message revealing the coordinates of the treasure is displayed.; fontSize: 0.11; letterSpacing: 0.13; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="23.39984 7.13832 -25.00203" rotation="0 -90 0"></a-troika-text>
+        <a-image src="#theAdventuresOfTintin" rotation="0 -90 0" position="23.338 6.52186 -28.18844"
+            geometry="height: 1.76; width: 1.405" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="23.33944 4.28794 -27.48423"
+            rotation=""></a-entity>
+        <!--The Adventures of Tintin (2011)-->
+
+        <!--The King's Man (2021)-->
+        <a-troika-text color="black"
+            troika-text="value: The King's Man (2021); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -90 0" position="23.30484 7.82875 -18.3855"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from The King’s Man (2021) movie. It's the emperor's most secret cipher being transmitted by Morse code. The story takes place during World War I, when a group called 'The Flock' plans to pit the German, Russian, and British empires against each other. Throughout the movie, the rulers send encrypted messages to each other several times, and the British Secret Service tries to break them.; fontSize: 0.11; letterSpacing: 0.14; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="23.39984 7.27625 -17.68371" rotation="0 -90 0"></a-troika-text>
+        <a-image src="#theKingsMan" rotation="0 -90 0" position="23.338 6.52165 -20.94414"
+            geometry="height: 1.78; width: 1.425" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="23.33944 4.28794 -20.24076"
+            rotation=""></a-entity>
+        <!--The King's Man (2021)-->
+
+        <!--The Da Vinci Code (2006)-->
+        <a-troika-text color="black"
+            troika-text="value: The Da Vinci Code (2006); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -90 0" position="23.30484 7.82875 -6.53206"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a transposition cipher from The Da Vinci Code (2006), featuring a floor inscription with an incorrect Fibonacci sequence. The main character deciphers that the sequence instructs rearranging anagrams of a sentence below to reveal a secret message. The film also introduces an encryption device using transpositional encryption based on a specific key.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="23.39984 7.138 -5.73846" rotation="0 -90 0"></a-troika-text>
+        <a-image src="#theDaVinciCode" rotation="0 -90 0" position="23.338 6.51316 -9.04475"
+            geometry="height: 1.78; width: 1.415" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="23.33944 4.28794 -8.33821"
+            rotation=""></a-entity>
+        <!--The Da Vinci Code (2006)-->
+
+        <!--The Librarian The Curse of the Judas Chalice (2008)-->
+        <a-troika-text color="black"
+            troika-text="value: The Librarian The Curse of the Judas Chalice (2008); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01; align: center"
+            rotation="0 -90 0" position="23.30484 7.82875 0.30431"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from The Librarian: The Curse of the Judas Chalice (2008) movie. It's a steganographic message encrypted in a coin. The film mentions something about the Vinierre cipher. Eventually, they discover that it is not a coin but a piece of glass, which, when exposed to the light, illuminates the map.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="23.39984 7.138 1.01015" rotation="0 -90 0"></a-troika-text>
+        <a-image src="#theLibrarianTheCurseOfTheJudasChalice" rotation="0 -90 0" position="23.338 6.51921 -2.24132"
+            geometry="height: 1.77; width: 1.415" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="23.33944 4.28794 -1.53366"
+            rotation=""></a-entity>
+        <!--The Librarian The Curse of the Judas Chalice (2008)-->
+
+        <!--Windtalkers (2002)-->
+        <a-troika-text color="black"
+            troika-text="value: Windtalkers (2002); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 180 0" position="19.77667 7.82875 4.63345"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the movie Windtalkers (2002). The movie depicts the fierce battles fought in the Pacific during the Second World War. The Japanese enemies at that time managed to crack all the Allied codes. As a result, the U.S. Marine Corps developed a new encryption system based on the Navajo language.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="19.16972 7.138 4.60712" rotation="0 180 0"></a-troika-text>
+        <a-image src="#windtalkers" rotation="0 180 0" position="22.225 6.51995 4.61688"
+            geometry="height: 1.76; width: 1.405" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="22.9316 4.28794 4.62678"
+            rotation="0 90 0"></a-entity>
+        <!--Windtalkers (2002)-->
+
+        <!--Tomb Raider (2018)-->
+        <a-troika-text color="black"
+            troika-text="value: Tomb Raider (2018); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 180 0" position="13.7324 7.82875 4.63345"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from the movie Tomb Raider (2018). In the movie, Lara Croft decided to search for her father, who was lost 7 years ago. Based on a mysterious letter, she follows in her father's footsteps to find the legendary tomb on a mythical island off the coast of Japan. In the tomb, there are ciphers hidden in the murals.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="12.72834 7.138 4.60712" rotation="0 180 0"></a-troika-text>
+        <a-image src="#tombRaider" rotation="0 180 0" position="15.848 6.52 4.617" geometry="height: 1.77; width: 1.415"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="16.55402 4.28794 4.62678"
+            rotation="0 90 0"></a-entity>
+        <!--Tomb Raider (2018)-->
+
+        <!--Transformers Revenge of the Fallen (2009)-->
+        <a-troika-text color="black"
+            troika-text="value: Transformers Revenge of the Fallen (2009); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01; align: center"
+            rotation="0 180 0" position="6.96173 7.82875 4.63345"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the movie Transformers: Revenge of the Fallen (2009). In this movie, the main character, Sam Witwicky,&nbsp;comes into contact with&nbsp;an alien object. Afterward, he sees symbols in his head that no one understands, which contain information about the location of a hidden alien weapon on Earth. Each symbol represents one character of the English alphabet.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="6.15861 7.138 4.60712" rotation="0 180 0"></a-troika-text>
+        <a-image src="#transformersRevengeOfTheFallen" rotation="0 180 0" position="9.3026 6.52036 4.61688"
+            geometry="height: 1.77; width: 1.415" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="10.00861 4.28794 4.62678"
+            rotation="0 90 0"></a-entity>
+        <!--Transformers Revenge of the Fallen (2009)-->
+
+        <!--Uncharted (2022)-->
+        <a-troika-text color="black"
+            troika-text="value: Uncharted (2022); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 180 0" position="0.35161 7.82875 4.63345"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from the movie Uncharted (2022). It's a message that appears only after the postcard is heated by fire. The main character is trying to find his brother's legacy. After reading the postcard, he remembers the trick they were using and thinks of using a lighter to heat the postcard.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-0.558 7.138 4.60712" rotation="0 180 0"></a-troika-text>
+        <a-image src="#uncharted" rotation="0 180 0" position="2.47615 6.52024 4.61688"
+            geometry="height: 1.76; width: 1.405" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="3.18243 4.28794 4.62678"
+            rotation="0 90 0"></a-entity>
+        <!--Uncharted (2022)-->
+
+        <!--Zodiac (2007)-->
+        <a-troika-text color="black"
+            troika-text="value: Zodiac (2007); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 180 0" position="-6.70196 7.82875 4.63345"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a homophonic substitution cipher from the movie Zodiac (2007). It's a message sent by the Zodiac Killer in 1969. The Zodiac Killer was an unidentified serial killer who operated in Northern California during the late 1960s and early 1970s. He is known for sending a series of taunting letters and cryptograms to the media and law enforcement. One letter can be represented as multiple symbols.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-7.30544 7.138 4.60712" rotation="0 180 0"></a-troika-text>
+        <a-image src="#zodiac" rotation="0 180 0" position="-4.15915 6.52811 4.61688"
+            geometry="height: 1.76; width: 1.405" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-3.44748 4.28794 4.62678"
+            rotation="0 90 0"></a-entity>
+        <!--Zodiac (2007)-->
+
+
+        <!--CIRCLE ROOM-->
+
+        <!--Martian (2015)-->
+        <a-troika-text color="black"
+            troika-text="value: Martian (2015); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 25 0" position="28.51922 7.789 -19.3933"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from The Martian (2015) movie. In this movie, the main character is shipwrecked alone on the planet Mars. The radio was broken, and the only way to communicate with NASA was by sending messages using hexadecimal ASCII codes. This is rather a code, not a cipher.; fontSize: 0.11; letterSpacing: -0.06; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top"
+            position="29.593 7.17527 -19.911" rotation="0 25 0"></a-troika-text>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="28.36305 3.99946 -19.34648"
+            rotation="0 115 0"></a-entity>
+        <a-image src="#martian" rotation="0 25 0" position="27.72323 6.22948 -19.0347"
+            geometry="height: 1.78; width: 1.425" material=""></a-image>
+        <!--Martian (2015)-->
+
+        <!--Enola Holmes (2020)-->
+        <a-troika-text color="black"
+            troika-text="value: Enola Holmes (2020); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -25 0" position="37.71181 7.789 -19.42982"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a transposition cipher from the movie Enola Holmes (2020), where words are written backward. Enola's mother taught her how to decipher codes, believing it would be useful. This skill proves essential when, at 16, Enola's mother disappears, leaving behind coded messages throughout the house for Enola to find and decode.; fontSize: 0.11; letterSpacing: -0.06; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top"
+            position="38.48172 7.17578 -19.07072" rotation="0 -25 0"></a-troika-text>
+        <a-image src="#enolaHolmes" rotation="0 -25 0" position="36.7072 6.235 -19.92201"
+            geometry="height: 1.77; width: 1.415" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="37.35093 3.99946 -19.6313"
+            rotation="0 65 0"></a-entity>
+        <!--Enola Holmes (2020)-->
+
+
+        <!--The Batman (2022)-->
+        <a-troika-text color="black"
+            troika-text="value: The Batman (2022); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -155 0" position="37.74832 7.74544 -5.86959"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from The Batman (2022) movie. It's a message left by The Riddler, who likes to give riddles. He left this riddle to Batman, inspired by the famous Zodiac Killer cipher. This cipher is composed of symbols, where each symbol represents one letter from the English alphabet.; fontSize: 0.11; letterSpacing: -0.06; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top"
+            position="37.10377 7.17995 -5.5247" rotation="0 -155 0"></a-troika-text>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="38.25648 3.99946 -6.05326"
+            rotation="0 -65 0"></a-entity>
+        <a-image src="#theBatman" rotation="0 -155 0" position="38.89612 6.22993 -6.35389"
+            geometry="height: 1.8; width: 1.425" material=""></a-image>
+        <!--The Batman (2022)-->
+
+        <!--Harry Potter and the Chamber of Secrets (2002)-->
+        <a-troika-text color="black"
+            troika-text="value: Harry Potter and the Chamber of Secrets (2002); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01; align: center"
+            rotation="0 155 0" position="28.68289 7.789 -5.87312"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a transposition cipher from the movie Harry Potter and the Chamber of Secrets (2002). In the movie, Harry Potter discovers Tom Riddle's diary at Hogwarts, which is revealed to be one of the Horcruxes created by Tom Riddle. The diary, belonging to Tom Marvolo Riddle, contains a crucial cipher. The name Tom Marvolo Riddle is rearranged to reveal the identity of the villain, Lord Voldemort, through an anagram, highlighting a transposed sequence of letters.; fontSize: 0.11; letterSpacing: -0.06; lineHeight: 1.5; maxWidth: 1.98; align: justify; baseline: top"
+            position="27.89313 7.15786 -6.2585" rotation="0 155 0"></a-troika-text>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="30.41899 3.99946 -5.08037"
+            rotation="0 65 0"></a-entity>
+        <a-image src="#harryPotterAndTheChamberofSecrets" rotation="0 155 0" position="29.77602 6.23929 -5.38376"
+            geometry="height: 1.76; width: 1.405" material=""></a-image>
+        <!--Harry Potter and the Chamber of Secrets (2002)-->
+
+
+        <!--CIRCLE ROOM-->
+
+        <!--SECOND FLOOR CIPHERS-->
+
+    </a-scene>
+
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="HCPortal - Virtual Museum of Historical Ciphers - Games section">
+    <title>Games section</title>
+
+    <!--    basic A-FRAME lib -->
+    <script src="vendor/aframe/1.1.0/aframe.min.js"></script>
+    <!--     <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script> -->
+
+    <!--    camera movement-controls -->
+    <script src="vendor/aframe-extras/6.1.1/aframe-extras.min.js"></script>
+    <!--    TEXT AREAS on walls -->
+    <script src="vendor/troika/0.6.0/aframe-troika-text.min.js"></script>
+
+
+    <script>
+
+        AFRAME.registerComponent('interactive', {
+            init: function () {
+                var el = this.el;
+                el.addEventListener('click', function () {
+                    window.location.replace('movies.html');
+                });
+            }
+        });
+
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <!--<a-scene  shadow="autoUpdate: true" cursor="rayOrigin: mouse" inspector-plugin-recast >-->
+    <a-scene shadow="autoUpdate: true" cursor="rayOrigin: mouse">
+
+
+        <a-asset>
+
+            <!--general gallery-->
+            <img id="wall" src="museum/assets/general/wall.jpg">
+            <img id="wall-NRM" src="museum/assets/general/wall-NRM.jpg">
+            <img id="floor" src="museum/assets/general/floor.jpg">
+            <img id="floor-NRM" src="museum/assets/general/floor_NRM.jpg">
+            <img id="panel" src="museum/assets/general/panel.png">
+            <img id="sky" src="museum/assets/general/sky.jpg">
+
+            <!-- games-->
+            <img id="assassinsCreedBrotherhood" src="museum/assets/games/Assassin’s_creed_Brotherhood_(2010).PNG">
+            <img id="assassinsCreedII" src="museum/assets/games/Assassin’s_Creed_II_(2009).PNG">
+            <img id="bioshockInfinite" src="museum/assets/games/Bioshock_Infinite_(2013).PNG">
+            <img id="cypher" src="museum/assets/games/Cypher_(2018).PNG">
+            <img id="deadSpace" src="museum/assets/games/Dead_Space_(2008).PNG">
+            <img id="deusExHumanRevolutionDirectorsCut"
+                src="museum/assets/games/Deus_ex_Human_Revolution_Director’s_cut_(2013).PNG">
+            <img id="homesick" src="museum/assets/games/Homesick_(2015).PNG">
+            <img id="chantsOfSennaar" src="museum/assets/games/Chants_of_Sennaar.PNG">
+            <img id="layersOfFear" src="museum/assets/games/Layers_of_fear_(2016).PNG">
+            <img id="papersPlease" src="museum/assets/games/Papers_please_(2013).PNG">
+            <img id="quarantineCircular" src="museum/assets/games/Quarantine_Circular_(2018).PNG">
+            <img id="residentEvil8" src="museum/assets/games/Resident_Evil_8_(2021).PNG">
+            <img id="stray" src="museum/assets/games/Stray_(2022).PNG">
+            <img id="tormentedSouls" src="museum/assets/games/Tormented_souls_(2021).PNG">
+
+            <!-- models-->
+            <a-asset-item id="obj" src="museum/assets/models/hand/gear_vr_controller.obj" preload="auto"></a-asset-item>
+            <a-asset-item id="mtl" src="museum/assets/models/hand/gear_vr_controller.mtl" preload="auto"></a-asset-item>
+            <a-asset-item id="door" src="museum/assets/models/door/scene.gltf" preload="auto"></a-asset-item>
+            <a-asset-item id="kiosk" src="museum/assets/models/kiosk.gltf" preload="auto"></a-asset-item>
+            <a-asset-item id="frame" src="museum/assets/models/frame.gltf"></a-asset-item>
+
+            <!-- nav mesh-->
+            <a-asset-item id="games-navmesh" src="museum/assets/navmeshes/navmesh_game.gltf"></a-asset-item>
+
+        </a-asset>
+        <!--navmesh-->
+        <a-entity gltf-model="#games-navmesh" visible="false" nav-mesh></a-entity>
+        <!--navmesh-->
+
+
+        <!--    camera-->
+        <a-entity id="camera-rig" position="-0.679 0 -11.915" rotation="0 157.767 0"
+            movement-controls="controls: cardboard, gamepad, keyboard, touch; constrainToNavMesh: true; speed: 0.4">
+            <a-entity id="head" camera look-controls="pointerLockEnabled: true" position="0 1.6 0">
+                <a-entity cursor position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
+                    material="color: black; shader: flat">
+                </a-entity>
+            </a-entity>
+        </a-entity>
+        <!--    camera-->
+
+
+        <!--floor-->
+        <a-plane position="-0.81221 0.12 -0.42469" src="#floor" repeat="5 7" rotation="-90 0 0" width="30"
+            height="40.000" material="" geometry="width: 30.83; height: 27.13"></a-plane>
+        <!--floor-->
+
+
+        <!--sky-->
+        <a-sky src="#sky"></a-sky>
+        <!--sky-->
+
+        <!--ENTRY-->
+        <a-entity id="door" shadow="" gltf-model="museum/assets/models/door/scene.gltf" position="-0.726 0.0931 -12.75"
+            rotation="0 180 0" scale="1.2 1.2 1" interactive=""></a-entity>
+        <!--ENTRY-->
+
+        <!--MAIN-SECTION-BASE-wall-->
+        <a-box src="#wall" repeat="5 1" shadow="" position="-0.72627 2.07498 -12.81094" rotation=""
+            scale="38.70662 4.355 0.147" material="" geometry="width: 0.42"></a-box>
+        <a-box src="#wall" repeat="4 1" shadow="" color="white" position="-11.621 2.13 -5.081" rotation="0 70 0"
+            scale="35.21677 4.355 0.147" material="" geometry="width: 0.47"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="-7.593 2.07498 6.926" rotation="0 -32 0"
+            scale="38.70662 4.355 0.147" material="" geometry="width: 0.42"></a-box>
+        <a-box src="#wall" repeat="5 1" shadow="" position="6.11881 2.07498 6.926" rotation="0 32 0"
+            scale="38.70662 4.355 0.147" material="" geometry="width: 0.42"></a-box>
+        <a-box src="#wall" repeat="4 1" shadow="" color="white" position="10.158 2.13 -5.07977" rotation="0 110 0"
+            scale="35.21677 4.355 0.147" material="" geometry="width: 0.47"></a-box>
+        <!--MAIN-SECTION-BASE-wall-->
+
+        <!--MIDDLE WALLS-->
+        <a-box src="#wall" repeat="1 1" shadow="" position="-0.726 2.277 -6.05378" rotation=""
+            scale="4.21884 4.355 0.147" material="" geometry="width: 1.48"></a-box>
+        <a-box src="#wall" repeat="1 1" shadow="" position="-4.86944 2.277 -3.16433" rotation="0 70 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 1.48"></a-box>
+        <a-box src="#wall" repeat="1 1" shadow="" position="-3.32152 2.277 1.35124" rotation="0 -32 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 1.48"></a-box>
+        <a-box src="#wall" repeat="1 1" shadow="" position="1.89038 2.277 1.34871" rotation="0 32 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 1.48"></a-box>
+        <a-box src="#wall" repeat="1 1" shadow="" position="3.42188 2.27693 -3.17538" rotation="0 110 0"
+            scale="4.21884 4.355 0.147" material="" geometry="width: 1.48"></a-box>
+        <!--MIDDLE WALLS-->
+
+        <!--MAIN ROOF-->
+        <a-box id="roof" src="#wall" repeat="2 2" normal-map="#wall-NRM" normal-texture-repeat="1 1" normal-scale="1 -1"
+            roughness="0.3" shadow="" position="-0.63118 4.30809 -0.68416" rotation="90 0 0"
+            scale="8.97335 8.82049 0.147" material="" geometry="height: 2.77; width: 3.11"></a-box>
+        <!--MAIN ROOF-->
+
+        <!--Welcoming-->
+        <a-troika-text color="black"
+            troika-text="value: Welcome to the games section!; letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.88; font: Roboto; outlineWidth: 0.01; fontSize: 0.25; align: center"
+            rotation="0 -180 0" position="-0.726 3.36 -6.13113"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: Do you like to play video games sometimes? If so then you are in the right place. In this section, you can find ciphers, maybe even from your favorite video games. That you may not have even known about. So don't hesitate to take a look around.; fontSize: 0.13; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4.01; align: center; baseline: top"
+            position="-0.726 2.61071 -6.131" rotation="0 -180 0"></a-troika-text>
+        <!--Welcoming-->
+
+
+        <!--CIPHERS-->
+
+        <!--Assassin’s Creed: Brotherhood (2010)-->
+        <a-troika-text color="black"
+            troika-text="value: Assassin’s Creed: Brotherhood (2010); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01; align: center"
+            rotation="0 110 0" position="3.4879 3.36 -3.2366"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a polyalphabetic substitution cipher from the game Assassin’s Creed: Brotherhood (2010). Players are tasked with setting the circles on the right based on the first pair of numbers and symbols from the top pairs (key). Then, they enter the symbol that corresponds to the first number from the combination, solving the remaining pairs by analogy.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="3.18856 2.564 -4.03402" rotation="0 110 0"></a-troika-text>
+        <a-image src="#assassinsCreedBrotherhood" rotation="0 110 0" position="4.25945 1.89619 -1.1476"
+            geometry="height: 1.77; width: 1.435" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="4.49284 -0.33478 -0.48817"
+            rotation="0 20 0"></a-entity>
+        <!--Assassin’s Creed: Brotherhood (2010)-->
+
+        <!--Assassin’s Creed II (2009)-->
+        <a-troika-text color="black"
+            troika-text="value: Assassin’s Creed II (2009); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 32 0" position="1.8388 3.36 1.46858"></a-troika-text>
+        <a-troika-text position="2.78176 2.0869 0.89925" color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the game Assassin’s Creed II (2009). It's a text encrypted with a monoalphabetic substitution, also called the Pigpen Cipher, found in a photo in one of the Glyph puzzle minigames, which can be found in several places in the game. Ciphers of this type reveal deeper information about the game's story and offer more insider info after decryption.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 32 0"></a-troika-text>
+        <a-image src="#assassinsCreedII" rotation="0 32 0" position="0.44887 1.925 2.37504"
+            geometry="height: 1.77; width: 1.41" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-0.14877 -0.31011 2.74583" visible=""
+            rotation="0 -58.00000000000001 0"></a-entity>
+        <!--Assassin’s Creed II (2009)-->
+
+        <!--Bioshock Infinite (2013)-->
+        <a-troika-text color="black"
+            troika-text="value: Bioshock Infinite (2013); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -32 0" position="-3.4019 3.36 1.40077"></a-troika-text>
+        <a-troika-text position="-2.54432 2.14551 1.93059" color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the game Bioshock Infinite (2013). Encrypted message by one of the main characters, Elizabeth, who has focused on the study of codes and cryptography. With special code books found in various places, she can decrypt the text on the cipher wall using substitution.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -32 0"></a-troika-text>
+        <a-image src="#bioshockInfinite" rotation="0 -32 0" position="-4.98755 1.90772 0.41"
+            geometry="height: 1.78; width: 1.44" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-5.58473 -0.33194 0.03512"
+            rotation="0 -122 0"></a-entity>
+        <!--Bioshock Infinite (2013)-->
+
+
+        <!--Cypher (2018)-->
+        <a-troika-text color="black"
+            troika-text="value: Cypher (2018); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -110 0" position="-4.9538 3.36 -3.21638"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a steganography from the game Cypher (2018). The cipher from this is taking the shape of a shopping list. The initial letters of the items on the list form a hidden message.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-5.28206 2.46042 -2.3911" rotation="0 -110 0"></a-troika-text>
+        <a-image src="#cypher" rotation="0 -110 0" position="-4.22948 1.9023 -5.17635"
+            geometry="height: 1.76; width: 1.405" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-3.9856 -0.33478 -5.84156"
+            rotation="0 160 0"></a-entity>
+        <!--Cypher (2018)-->
+
+        <!--Dead Space (2008)-->
+        <a-troika-text color="black"
+            troika-text="value: Dead Space (2008); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="4.52656 3.36034 -12.71242"></a-troika-text>
+        <a-troika-text position="4.86261 1.98764 -12.71988" color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the game Dead Space (2008). Throughout the game, cipher texts are marked with arrows, and when illuminated, one of the arrows lights up green. Players who collect all 12 green-lit arrows receive in-game bonuses that enhance their character's equipment. The key to deciphering these texts is scattered across various locations in the game, and the same cipher appears in multiple places, challenging players to piece together the clues.; fontSize: 0.1; letterSpacing: 0.13; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation=""></a-troika-text>
+        <a-image src="#deadSpace" rotation="" position="2.126 1.91815 -12.728" geometry="height: 1.775; width: 1.42"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="1.4159 -0.31036 -12.72976"
+            rotation="0 -90 0"></a-entity>
+        <!--Dead Space (2008)-->
+
+        <!--Deus ex Human Revolution – Director’s cut (2013)-->
+        <a-troika-text color="black"
+            troika-text="value: Deus ex Human Revolution – Director’s cut (2013); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01; align: center"
+            rotation="0 -70 0" position="8.91175 3.36 -8.28647"></a-troika-text>
+        <a-troika-text position="9.17483 2.008 -7.56421" color="black"
+            troika-text="value: This is a polyalphabetic substitution cipher from the game Deus ex: Human Revolution – Director’s cut (2013). It features the Vigenère cipher in the director's cut version at the Rifleman Bank Station location. In this part of the game, players can access company emails on employees' computers. Among these, there's a hidden email depicting a conversation between a new employee and a department boss, involving the exchange of ciphers.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -70 0"></a-troika-text>
+        <a-image src="#deusExHumanRevolutionDirectorsCut" rotation="0 -70 0" position="8.15 1.90772 -10.288"
+            geometry="height: 1.78; width: 1.45" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="7.91701 -0.33194 -10.95453"
+            rotation="0 -160 0"></a-entity>
+        <!--Deus ex Human Revolution – Director’s cut (2013)-->
+
+        <!--Homesick (2015)-->
+        <a-troika-text color="black"
+            troika-text="value: Homesick (2015); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -70 0" position="11.57911 3.36 -0.95307"></a-troika-text>
+        <a-troika-text position="11.92301 2.00787 0.00673" color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the game Homesick (2015). The cipher is composed of symbols, where each symbol represents one letter from the English alphabet. 'Homesick' is categorized as a 'walking simulator', with the narrative unfolding as players navigate through an abandoned building, uncovering cipher texts that are crucial to the story. As the game progresses, players collect the necessary keys to decrypt these texts, integrating decryption into the core of the storytelling.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3.5; align: justify"
+            rotation="0 -70 0"></a-troika-text>
+        <a-image src="#homesick" rotation="0 -70 0" position="10.941 1.90772 -2.6867"
+            geometry="height: 1.77; width: 1.45" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="10.70059 -0.33194 -3.35117"
+            rotation="0 -160 0"></a-entity>
+        <!--Homesick (2015)-->
+
+
+        <!--Chants of Sennaar (2023)-->
+        <a-troika-text color="black"
+            troika-text="value: Chants of Sennaar (2023); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -148.01 0" position="8.97932 3.36 5.02543"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the game Chants of Sennaar (2023), consisting of 6 characters next to 6 levers that release water. The key is a second message describing the position of the lever. When a lever is up, the water flows, and when a lever is down, the water stops. Thus, we position the levers according to the cryptogram in the order: open, open, close, open, close, open.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="8.13853 2.57912 5.53205" rotation="0 -148.01 0"></a-troika-text>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="11.58176 -0.33478 3.41765"
+            rotation="0 122 0"></a-entity>
+        <a-image src="#chantsOfSennaar" rotation="0 -148.01 0" position="10.97871 1.89732 3.79296"
+            geometry="height: 1.77; width: 1.425" material=""></a-image>
+        <!--Chants of Sennaar (2023)-->
+
+        <!--Layers of Fear (2016)-->
+        <a-troika-text color="black"
+            troika-text="value: Layers of Fear (2016); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 -148.01 0" position="2.52457 3.36 9.05723"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the game Layers of Fear (2016). It's a letter with words and numbers below them. To solve it each letter of the word, which is an animal (in this case it is a cat, but we may get a dog or a rat) has to be connected with the corresponding number. ; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="1.66158 2.50181 9.60994" rotation="0 -148.01 0"></a-troika-text>
+        <a-image src="#layersOfFear" rotation="0 -148.01 0" position="4.417 1.89622 7.867"
+            geometry="height: 1.77; width: 1.415" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="5.02008 -0.33478 7.50133"
+            rotation="0 122 0"></a-entity>
+        <!--Layers of fear (2016)-->
+
+        <!--Papers, Please (2013)-->
+        <a-troika-text color="black"
+            troika-text="value: Papers please (2013); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 148 0" position="-4.79827 3.36 8.54164"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a transposition cipher from the game Papers, Please (2013). In this game, a character named Ezis will give players a text, along with a decryption grid the next day. By attaching the grid to the upper right or lower left corner of the text, players will see the names of wanted individuals.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-5.47584 2.469 8.12393" rotation="0 148 0"></a-troika-text>
+        <a-image src="#papersPlease" rotation="0 148 0" position="-2.75808 1.89739 9.83585"
+            geometry="height: 1.77; width: 1.415" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-2.16345 -0.33478 10.21738"
+            rotation="0 58.00000000000001 0"></a-entity>
+        <!--Papers, Please (2013)-->
+
+        <!--Quarantine Circular (2018)-->
+        <a-troika-text color="black"
+            troika-text="value: Quarantine Circular (2018); letterSpacing: 0.25; lineHeight: 2.01; maxWidth: 4.1; font: Roboto; outlineWidth: 0.01"
+            rotation="0 148 0" position="-10.95847 3.36 4.73041"></a-troika-text>
+        <a-troika-text color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the game Quarantine Circular (2018). It features a text encrypted by a Caesar shift used in a Caesar cipher. In this cipher, letters are shifted by 4 places. For example, 'T' is encrypted as 'X', 'h' as 'l', and so on.; fontSize: 0.11; letterSpacing: 0.15; lineHeight: 1.5; maxWidth: 4; align: justify; baseline: top"
+            position="-11.67043 2.46855 4.28104" rotation="0 148 0"></a-troika-text>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-8.38117 -0.33478 6.34652"
+            rotation="0 58.00000000000001 0"></a-entity>
+        <a-image src="#quarantineCircular" rotation="0 148 0" position="-8.97623 1.90371 5.96505"
+            geometry="height: 1.77; width: 1.405" material=""></a-image>
+        <!--Quarantine Circular (2018)-->
+
+        <!--Resident Evil 8 (2021)-->
+        <a-troika-text color="black"
+            troika-text="value: Resident Evil 8 (2021); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 70 0" position="-12.73769 3.36 -1.71467"></a-troika-text>
+        <a-troika-text position="-12.46269 2.154 -2.49524" color="black"
+            troika-text="value: This is a steganography task from the game Resident Evil 8 (2021). It involves playing a movie on the projector by arranging 5 film strips in a specific order. Next to the projector is a piece of paper with lines acting as a cipher key. Based on this key, the film strips should be arranged in the following order: dolls, books, babies, music boxes, and rings.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 70 0"></a-troika-text>
+        <a-image src="#residentEvil8" rotation="0 70 0" position="-13.421 1.91904 0.11403"
+            geometry="height: 1.78; width: 1.41" material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-13.66949 -0.31011 0.77597" visible=""
+            rotation="0 -20 0"></a-entity>
+        <!--Resident Evil 8 (2021)-->
+
+        <!--Stray (2022)-->
+        <a-troika-text color="black"
+            troika-text="value: Stray (2022); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="0 70 0" position="-10.14197 3.36 -8.92583"></a-troika-text>
+        <a-troika-text position="-9.79835 2.15395 -9.86691" color="black"
+            troika-text="value: This is a monoalphabetic substitution cipher from the game Stray (2022). In this game a substitution is used as a replacement for the normal alphabet to 'add another layer of mystery' to the game, but the cipher itself is very simple. It can be seen in several places, whether in newspapers, on television, or in the opening credits of each chapter of the game.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation="0 70 0"></a-troika-text>
+        <a-image src="#stray" rotation="0 70 0" position="-10.738 1.925 -7.273" geometry="height: 1.78; width: 1.42"
+            material=""></a-image>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-10.98262 -0.31011 -6.6049" visible=""
+            rotation="0 -20 0"></a-entity>
+        <!--Stray (2022)-->
+
+        <!--Tormented souls (2021)-->
+        <a-troika-text color="black"
+            troika-text="value: Tormented souls (2021); letterSpacing: 0.25; lineHeight: 2; maxWidth: 5; font: Roboto; outlineWidth: 0.01"
+            rotation="" position="-5.44321 3.36034 -12.71242"></a-troika-text>
+        <a-troika-text position="-4.48193 2.1894 -12.70211" color="black"
+            troika-text="value: This is a steganography from the game Tormented Souls (2021), in the form of a skeleton with buttons. The buttons are placed based on verses spoken in the game. Players must click on the buttons corresponding to each verse, as each verse is related to a specific part of the body.; fontSize: 0.1; letterSpacing: 0.1; lineHeight: 1.23; maxWidth: 3; align: justify"
+            rotation=""></a-troika-text>
+        <a-entity gltf-model="museum/assets/models/frame.gltf" position="-7.88293 -0.31036 -12.72976"
+            rotation="0 -90 0"></a-entity>
+        <a-image src="#tormentedSouls" rotation="" position="-7.176 1.91928 -12.728"
+            geometry="height: 1.775; width: 1.42" material=""></a-image>
+        <!--Tormented souls (2021)-->
+
+        <!--CIPHERS-->
+
+
+    </a-scene>
+
+</body>
+
+</html>
